@@ -1,0 +1,31 @@
+/* task.wxss */
+.task-plus-container {
+  flex-direction: column;
+  display: flex;
+  margin: 20rpx 0 40rpx;
+  background-color: #fff;
+  padding-bottom: 5px;
+}
+
+
+.task-plus-title-input {
+  margin: 10rpx 0 20rpx 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #ededed;
+  height: 80rpx;
+}
+.task-plus-title-input text{
+  font-size: 30rpx;
+  font-weight: 300;
+  margin-left: 10rpx;
+  width: 20%;
+  text-align: right;
+}
+
+.task-plus-title-input input{
+  border-left: 1px solid #ededed;
+  width: 90%;
+  font-size: 32rpx;
+}

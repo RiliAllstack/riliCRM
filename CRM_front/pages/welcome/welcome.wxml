@@ -1,0 +1,10 @@
+<view class="container">
+    <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+    <text class="motto">欢迎使用鈤励CRM</text>
+    <!--<text class="forward">请先填写贵公司名称</text>
+    <input class="input"/>-->
+    <view catchtap="onTapJump" class="journey-container">
+        <text class="journey">开启小程序</text>
+    </view>
+    <!--<image class="gif" src="/images/gif/flybird.gif"></image>-->
+</view>

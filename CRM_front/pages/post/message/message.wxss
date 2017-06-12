@@ -1,0 +1,77 @@
+
+
+.send-arrow-right {
+  position: absolute;
+  top: 5px;
+  right: -16px; /* 圆角的位置需要细心调试哦 */
+  width: 0;
+  height: 0;
+  font-size: 0;
+  border: solid 8px;
+  border-color: #e6e6e6 #e6e6e6 #e6e6e6 #fff;
+  margin-top: 2rpx;
+}
+
+.send-left {
+  position: relative;
+  width: 150px;
+  height: 35px;
+  background: #fff;
+  border-radius: 5px; /* 圆角 */
+  margin: 30px 10% 0;
+}
+
+.send-arrow-left {
+  position: absolute;
+  top: 5px;
+  left: -16px; /* 圆角的位置需要细心调试哦 */
+  width: 0;
+  height: 0;
+  font-size: 0;
+  border: solid 8px;
+  border-color: #e6e6e6 #fff #e6e6e6 #e6e6e6;
+}
+
+.container {
+  background: #e6e6e6;
+  display: flex;
+  flex-direction: column;
+  height: 1200rpx;
+}
+.message-container
+{
+  display: flex;
+  flex-direction: row;
+}
+.send-right {
+  position: relative;
+  width: 150px;
+  height: 35px;
+  background: #fff;
+  border-radius: 5px; /* 圆角 */
+  margin: 10rpx 0 0 50%;
+}
+
+.avatar {
+  position: relative;
+  width: 64rpx;
+  height: 64rpx;
+  margin: 10rpx 10rpx 0 40rpx;
+  border-radius: 50%;
+}
+.sendmessage{
+  display: flex;
+  flex-direction: row;
+}
+.sendmessage input{
+  font-size: 32rpx;
+  margin-bottom: 0px;
+  margin-left: 20px;
+  background-color: white;
+  width: 70%;
+  height: 40px;
+}
+.sendmessage button{
+  font-size: 32rpx;
+  margin-bottom: 12px;
+}

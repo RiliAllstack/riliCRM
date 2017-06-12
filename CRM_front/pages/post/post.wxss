@@ -1,0 +1,229 @@
+@import "post-item/post-item-tpl.wxss";
+
+.search {
+  background-color: #f2f2f2;
+  height: 80rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.search-img {
+  margin: auto 0 auto 20rpx;
+}
+.search input {
+  height: 100%;
+  width: 600rpx;
+  margin-left: 20px;
+  font-size: 28rpx;
+}
+.category-item {
+  width: 100%;
+  margin: 20rpx 0;
+  border-top: 1rpx solid #d9d9d9;
+  border-bottom: 1rpx solid #d9d9d9;
+  background-color: #fff;
+}
+.category-item.personal-info {
+  height: 130rpx;
+  display: flex;
+  padding: 20rpx 0;
+}
+.category-item.personal-info .user-avatar {
+  margin: 0 30rpx;
+  width: 130rpx;
+  height: 130rpx;
+  position: relative;
+}
+.category-item.personal-info .user-avatar image {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 2rpx;
+}
+.category-item.personal-info .user-name {
+  margin-right: 30rpx;
+  flex: 1;
+  padding-top: 10rpx;
+}
+.detail-item {
+  display: flex;
+  border-bottom: 1px solid RGBA(217, 217, 217, 0.4);
+  height: 85rpx;
+  align-items: center;
+}
+.detail-item:last-child {
+  border-bottom: none;
+}
+.detail-item image {
+  margin-left: 30rpx;
+  height: 40rpx;
+  width: 40rpx;
+}
+.detail-item .msgcounts {
+  color: #7f8389;
+  font-size: 24rpx;
+  flex: 1;
+  margin-left: 30rpx;
+}
+.detail-item .newmsg {
+  margin-left: 5rpx;
+  width:15rpx;
+  height: 15rpx;
+}
+
+.detail-item.green_hover {
+  background-color: lightgrey;
+}
+.detail-item .detail-item-btn {
+  width: 50rpx;
+  color: #d9d9d9;
+  height: 40rpx;
+  margin-right: 20rpx;
+  text-align: center;
+}
+.detail-item .detail-item-btn::after {
+  display: inline-block;
+  content: '';
+  width: 16rpx;
+  height: 16rpx;
+  color: #d9d9d9;
+  margin-top: 8rpx;
+  border: 3rpx #d9d9d9 solid;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  transform: rotate(-45deg);
+}
+.journey-container {
+  margin-top: 100rpx;
+  margin-left: 30rpx;
+  border: 0px solid #ea5a3c;
+  width: 90%;
+  height: rpx;
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.journey-container image {
+  width: 128rpx;
+  height: 128rpx;
+  display: block;
+  margin: 0 auto;
+}
+.journey-container text {
+  font-size: 36rpx;
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+}
+.board {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100rpx;
+ 
+}
+.board-title {
+  font-size: 36rpx;
+  text-align: center;
+  border: 2px solid #4a6141;
+  border-radius: 5px;
+  width: 350rpx;
+  margin-left: 26%;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+.board-add {
+  font-size: 36rpx;
+  text-align: center;
+  width: 350rpx;
+  margin-left: 26%;
+  margin-top:10%;
+}
+.board-content-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50rpx;
+   
+}
+.board-content {
+  margin-top: 10rpx;
+  margin-left: 100rpx;
+  margin-right: 100rpx;
+  display: flex;
+  flex-direction: row;
+}
+.board-content text {
+  font-size: 28rpx;
+  flex: 1;
+}
+.board-content radio {
+  margin-left: 20rpx;
+}
+.board-content .board-btn-down {
+  width: 50rpx;
+  color: #d9d9d9;
+  height: 40rpx;
+  margin-right: 20rpx;
+  text-align: center;
+}
+.board-content .board-btn-down::after {
+  display: inline-block;
+  content: '';
+  width: 16rpx;
+  height: 16rpx;
+  color: #d9d9d9;
+  margin-top: 8rpx;
+  border: 3rpx #d9d9d9 solid;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  transform: rotate(45deg);
+}
+.board-content .board-btn-up {
+  width: 50rpx;
+  color: #d9d9d9;
+  height: 40rpx;
+  margin-right: 20rpx;
+  text-align: center;
+}
+.board-content .board-btn-up::after {
+  display: inline-block;
+  content: '';
+  width: 16rpx;
+  height: 16rpx;
+  color: #d9d9d9;
+  margin-top: 8rpx;
+  border: 3rpx #d9d9d9 solid;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  transform: rotate(-135deg);
+}
+.board-imgcontent {
+  background: lightgrey;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2px solid #4a6141;
+  border-bottom-left-radius: 25rpx;
+  border-bottom-right-radius: 25rpx;
+}
+.board-imgcontent-img-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33%;
+  padding-top: 10rpx;
+}
+.board-imgcontent-img-text image {
+  padding-bottom: 1rpx;
+  width: 52rpx;
+  height: 52rpx;
+}
+.board-imgcontent-img-text text {
+  padding-bottom: 10rpx;
+}
+.board-content-detail {
+  background: lightgrey;
+  font-size: 26rpx;
+  text-align: center;
+}

@@ -1,0 +1,56 @@
+<import src="post-item/post-item-tpl.wxml" />
+<view>
+  <view class="search">
+    <icon type="search" class="search-img" size="13" color="#405f80"></icon>
+    <input type="text" placeholder="搜索" placeholder-class="placeholder" bindfocus="onBindFocus" value="{{inputValue}}" bindconfirm="onBindConfirm" />
+    <image wx:if="{{searchPanelShow}}" src="/images/icon/wx_app_xx.png" class="xx-img" catchtap="onCancelImgTap"></image>
+  </view>
+  <view class="category-item">
+    <block wx:for="{{device}}">
+      <view class="detail-item" catchtap="{{item.tap}}" hover="true" hover-class="green_hover" hover-start-time="1" hover-stay-time="200">
+        <image src="{{item.iconurl}}"></image>
+        <view class="msgcounts">
+          <text>{{item.title}}</text>
+          <image class="newmsg" src="/images/icon/other_icon/dots.png"></image>
+        </view>
+        <view class="detail-item-btn"></view>
+      </view>
+    </block>
+  </view>
+  <view wx:if="{{isNullTask}}" class="journey-container">
+    <image src="../../images/icon/other_icon/calendar.png"></image>
+    <text class="journey">今日还没有安排日程哦</text>
+    <text class="journey" style="color:blue" catchtap="onArrange">马上安排</text>
+  </view>
+  <view wx:if="{{!isNullTask}}" class="board">
+    <view class="board-title">今日任务列表</view>
+    <view class="board-content-container">
+      <block wx:for="{{taskList}}" wx:for-index="idx">
+        <view class="board-content" catchtap="hide" data-postId="{{idx}}">
+          <radio value="usa" checked="false" />
+          <text>{{item.theme}}</text>
+          <view wx:if="{{!taskShowStatus[idx].isShow}}" class="board-btn-down"></view>
+          <view wx:if="{{taskShowStatus[idx].isShow}}" class="board-btn-up"></view>
+        </view>
+        <text wx:if="{{taskShowStatus[idx].isShow}}" class="board-content-detail">
+          探讨详细需求；提供报价。。{{taskShowStatus[idx].isShow}}
+        </text>
+        <view wx:if="{{taskShowStatus[idx].isShow}}" class="board-imgcontent">
+          <view class="board-imgcontent-img-text" catchtap="dealTask" data-type="{{1}}" data-taskId="{{item.Id}}">
+            <image src="/images/icon/other_icon/checkmark.png"></image>
+            <text>完成</text>
+          </view>
+          <view class="board-imgcontent-img-text" catchtap="dealTask" data-type="2" data-taskId="{{item.Id}}">
+            <image src="/images/icon/other_icon/clock.png"></image>
+            <text>延时</text>
+          </view>
+          <view class="board-imgcontent-img-text" catchtap="dealTask" data-type="3" data-taskId="{{item.Id}}">
+            <image src="/images/icon/other_icon/trash.png"></image>
+            <text>删除</text>
+          </view>
+        </view>
+      </block>
+      <text class="board-add" style="color:blue" catchtap="onArrange">添加任务</text>
+    </view>
+  </view>
+</view>

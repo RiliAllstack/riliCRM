@@ -1,0 +1,50 @@
+.container {
+  margin-top: 100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.motto {
+  margin-top: 200rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #9f4311;
+}
+.forward{
+  margin-top: 100rpx;
+  font-size: 30rpx;
+}
+
+.journey-container {
+  margin-top: 200rpx;
+  border: 1px solid #ea5a3c;
+  width: 200rpx;
+  height: 80rpx;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.journey {
+  font-size: 22rpx;
+  font-weight: bold;
+  line-height: 80rpx;
+  color: #ea5a3c;
+}
+
+page {
+  background-color: #ecc0a8;
+}
+
+input {
+  margin-top: 20rpx; 
+  background-color: white;
+  border-radius: 10rpx;
+}

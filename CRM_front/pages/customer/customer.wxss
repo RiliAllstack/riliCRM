@@ -1,0 +1,9 @@
+/* customer.wxss */
+@import "customer-item/customer-item-tpl.wxss";
+
+.fixedAdd {
+  position: fixed;
+  width: 120rpx;
+  height: 120rpx;
+  margin: 140% 0 0 80%;
+}
