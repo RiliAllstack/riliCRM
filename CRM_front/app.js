@@ -23,6 +23,7 @@ App({
               },
               success: function (res) {
                 that.globalData.g_userInfo.userInfo_openid = res.data
+                
               }
             })
 
@@ -32,8 +33,9 @@ App({
           wx.getUserInfo({
             success: function (res) {
               that.globalData.g_userInfo.userInfo = res.userInfo
+              console.log(that.globalData.g_userInfo)
               wx.setStorageSync('user', that.globalData.g_userInfo)
-              //记录用户登录数据
+              // 记录用户登录数据
               wx.request({
                 url: 'http://192.168.3.158/wxes/public/index.php/home/User/add_Users',
                 //url:'http://localhost/test.php',

@@ -1,10 +1,9 @@
 {
   "pages": [
+    "pages/welcome/welcome",
     "pages/post/post",
     "pages/post/task/task",
-    "pages/welcome/welcome",
-   
-    
+
   
     "pages/customer/customer-plus/customer-plus",
     

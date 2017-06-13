@@ -55,7 +55,7 @@ var setCurDetailIndex = function (index) {
 
 //刷新全部数据
 var refreshPageData = function (year, month, day) {
-  pageData.date = year + '年' + (month + 1) + '月';
+  pageData.date = year + '年' + (month+1) + '月';
 
   var offset = new Date(year, month, 1).getDay();
   for (var i = 0; i < 42; ++i) {
@@ -75,13 +75,14 @@ var refreshPageData = function (year, month, day) {
     }
   }
 
-  setCurDetailIndex(offset + day);
+  setCurDetailIndex(offset + day-1);
 };
 
 var curDate = new Date();
 var curMonth = curDate.getMonth();
 var curYear = curDate.getFullYear();
-var curDay = curDate.getDay()+3;
+var curDay = curDate.getDate();
+//console.log(curMonth + '月' + curYear + '年' + curDay +'日');
 refreshPageData(curYear, curMonth, curDay);
 
 Page({
@@ -95,7 +96,8 @@ Page({
     curDate = new Date();
     curMonth = curDate.getMonth();
     curYear = curDate.getFullYear();
-    curDay = curDate.getDay();
+    curDay = curDate.getDate();
+    
     refreshPageData(curYear, curMonth, curDay);
     this.setData(pageData);
   },
