@@ -55,7 +55,7 @@ var setCurDetailIndex = function (index) {
 
 //刷新全部数据
 var refreshPageData = function (year, month, day) {
-  pageData.date = year + '年' + (month+1) + '月';
+  pageData.date = year + '年' + (month + 1) + '月';
 
   var offset = new Date(year, month, 1).getDay();
   for (var i = 0; i < 42; ++i) {
@@ -75,7 +75,7 @@ var refreshPageData = function (year, month, day) {
     }
   }
 
-  setCurDetailIndex(offset + day-1);
+  setCurDetailIndex(offset + day - 1);
 };
 
 var curDate = new Date();
@@ -85,11 +85,31 @@ var curDay = curDate.getDate();
 //console.log(curMonth + '月' + curYear + '年' + curDay +'日');
 refreshPageData(curYear, curMonth, curDay);
 
+var app = getApp()
+
 Page({
   data: pageData,
 
   onLoad: function (options) {
+    this.setData({
+      userInfo: app.globalData.g_userInfo.userInfo_openid
+    })
+    this.getTaskMonth();
+    },
+  getTaskMonth: function () {
+    var that = this;
+    wx.request({
+      url: app.globalData.g_ip + '/wxes/public/index.php/home/Task/select_TaskList?open_id=' + that.data.userInfo.openid + '&start_time=' + '2017-06',
+      success: function (res) {
+        pageData.detailData.curDayTask = res.data[pageData.detailData.curDay - 1].data;
+        that.setData({
+          everdayTask: res.data,
+          detailData: pageData.detailData
+        })
+        
 
+      }
+    })
   },
 
   goToday: function (e) {
@@ -97,7 +117,7 @@ Page({
     curMonth = curDate.getMonth();
     curYear = curDate.getFullYear();
     curDay = curDate.getDate();
-    
+
     refreshPageData(curYear, curMonth, curDay);
     this.setData(pageData);
   },
@@ -127,7 +147,11 @@ Page({
   },
 
   selectDay: function (e) {
+    console.log(e.currentTarget.dataset.dayIndex);
     setCurDetailIndex(e.currentTarget.dataset.dayIndex);
+    var curEx = pageData.arrInfoEx[e.currentTarget.dataset.dayIndex].sDay;
+    console.log(curEx);
+    pageData.detailData.curDayTask = this.data.everdayTask[curEx-1].data;
     this.setData({
       detailData: pageData.detailData,
     })
@@ -135,7 +159,8 @@ Page({
 
   bindDateChange: function (e) {
     var arr = e.detail.value.split("-");
-    refreshPageData(+arr[0], arr[1] - 1, arr[2] - 1);
+    console.log(arr);
+    refreshPageData(+arr[0], arr[1] - 1, arr[2] - 0);
     this.setData(pageData);
   },
 });

@@ -1,0 +1,58 @@
+/* team.wxss */
+
+.team-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.team-row {
+  display: flex;
+  flex-direction: row;
+  padding-top: 30rpx;
+}
+
+.team-row image {
+  width: 100rpx;
+  height: 80rpx;
+  margin-left: 20rpx;
+}
+
+.team-row text {
+  width: 100%;
+  font-size: 32rpx;
+  font-weight: bold;
+  padding-top: 10rpx;
+  margin-left: 20rpx;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.mates-item {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #d9d9d9;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+
+.mates-item image {
+  border-radius: 50%;
+  width: 80rpx;
+  height: 80rpx;
+  margin-left: 30rpx;
+}
+
+.mates-item text {
+  font-size: 30rpx;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  width: 200rpx;
+}
+.mates-item checkbox {
+  margin-top: 15rpx;
+  margin-left: 300rpx;
+}
+.mates-item button {
+  margin-left: 300rpx;
+  font-size: 28rpx;
+}
+

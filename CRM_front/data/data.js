@@ -1,15 +1,15 @@
 var postList = {
   onlines: [
     {
-      title: "客户资料",
+      title: "客户",
       postImg: "/images/icon/other_icon/friends-1.png",
       postId: 1,
     },
-    {
-      title: "客户进展",
-      postImg: "/images/icon/other_icon/schedule.png",
-      postId: 2,
-    },
+    // {
+    //   title: "客户进展",
+    //   postImg: "/images/icon/other_icon/schedule.png",
+    //   postId: 2,
+    // },
     // {
     //     title: "合同模板",
     //     postImg: "/images/post/post-1.jpg",

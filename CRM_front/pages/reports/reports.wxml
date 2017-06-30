@@ -1,0 +1,18 @@
+<!--personer.wxml-->
+<view class="choser">
+  <view class="choser-block" catchtap="onChangeReports">
+    <text>所有报告</text>
+    <image src="/images/icon/other_icon/arrow-down-b.png"></image>
+  </view>
+  <view class="choser-block" catchtap="onChangeTime">
+    <text>最新创建</text>
+    <image src="/images/icon/other_icon/arrow-down-b.png"></image>
+  </view>
+  <image src="/images/icon/other_icon/plus_b.png" catchtap="onTapToPlus"></image>
+</view>
+
+<view class="reports-container" wx:for="{{reports}}" catchtap="onTapToDetail" data-reportid="index">
+  <view class="reports-author-date"></view>
+  <text class="reports-title">{{item.nickName}}的报告【{{item.create_time}}】</text>
+  <text class="reports-content">创建日期:{{update_time}}</text>
+</view>

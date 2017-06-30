@@ -15,7 +15,7 @@
         <view class="calendar-body-rows" wx:for="123456" wx:for-index="row" wx:key="*this">
             <view class="calendar-body-cols" wx:for="1234567" wx:for-index="col" wx:key="*this">
                 <view class="calendar-body-item" wx:if="{{arrIsShow[row * 7 + col]}}" data-day-index="{{row * 7 + col}}" bindtap="selectDay">
-                <image src="/images/icon/other_icon/dot_blue.png"></image>
+                <image wx:for="{{everdayTask}}"  wx:if="{{everdayTask[arrDays[row * 7 + col]-1].success}}" src="/images/icon/other_icon/dot_blue.png"></image>
                     <view wx:if="{{arrDays[row * 7 + col] == detailData.curDay}}" class="calendar-body-day" style="color:red; font-weight: bold;font-style:italic;">
                         {{arrDays[row * 7 + col]}}
                     </view>
@@ -33,5 +33,7 @@
         <view class="calendar-detail-day">{{detailData.curDay}}</view>
         <view class="calendar-detail-info1">{{detailData.curInfo1}}</view>
         <view class="calendar-detail-info2">{{detailData.curInfo2}}</view>
+        <view class="classname" wx:for="{{detailData.curDayTask}}">
+        <text>{{index+1}}、主题：{{item.theme}} (描述：{{item.depict}})</text></view>
     </view>
 </view>

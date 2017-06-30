@@ -1,0 +1,109 @@
+<!--customer-detail.wxml-->
+<view class="title">
+  <view class="title-block" catchtap="change" data-bl="1">
+    <text wx:if="{{bl!=1}}">跟进记录</text>
+    <text wx:if="{{bl==1}}" style="border-bottom: 1px solid #00a6e7;color:#00a6e7">跟进记录</text>
+  </view>
+  <view class="title-block" catchtap="change" data-bl="2">
+    <text wx:if="{{bl!=2}}">详细资料</text>
+    <text wx:if="{{bl==2}}" style="border-bottom: 1px solid #00a6e7;color:#00a6e7">详细资料</text>
+  </view>
+</view>
+<view class="customer-detail">
+  <view class="customer-detail-followup" wx:if="{{bl==1}}">
+    <view wx:for="{{records}}" wx:for-item="itemTime">
+      <view class="record-time">
+        <text>{{itemTime.create_time}}</text>
+        <view class="lines"></view>
+      </view>
+      <view wx:for="{{itemTime.data}}" wx:for-item="itemTimeData">
+        <view class="customer-detail-record1" wx:if="{{itemTimeData.type==2}}">
+
+          <view class="record1-content">
+            <view class="record1-content-title">
+              <image src="/images/icon/other_icon/sticky.png"></image>
+              <text>来自{{itemTimeData.whos}}</text>
+            </view>
+            <view class="record1-content-content">
+              <text>{{itemTimeData.detail}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="customer-detail-record2" wx:if="{{itemTimeData.type==1}}">
+          <view class="record2-content">
+            <text>{{itemTimeData.whos}}</text>
+            <image src="/images/icon/other_icon/arrow_simle_right.png"></image>
+            <text>创建了客户：</text>
+            <text>{{itemTimeData.detail}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="customer-detail-record-send">
+      <view class="type">
+        <image src="/images/icon/other_icon/type.png"></image>
+      </view>
+      <view class="img_upload">
+        <image src="/images/icon/other_icon/img_upload.png"></image>
+      </view>
+      <input placeholder="快速记录" />
+      <image src="/images/icon/other_icon/redo.png"></image>
+    </view>
+  </view>
+  <view class="customer-detail-info" wx:if="{{bl==2}}">
+    <view class="customer-detail-info-title">
+      <text>基本信息</text>
+    </view>
+    <view class="customer-detail-info-content">
+      <text>客户名称：</text>
+      <text style="font-weight:bolder">{{customerDetail.company}}</text>
+    </view>
+
+    <view class="customer-detail-info-content">
+      <text>规模：</text>
+      <text style="font-weight:bolder">{{customerDetail.scale}}</text>
+    </view>
+    <view class="customer-detail-info-content">
+      <text>负责人：</text>
+      <text style="font-weight:bolder">{{customerDetail.charger}}</text>
+    </view>
+    <view class="customer-detail-info-title">
+      <text>联系信息</text>
+    </view>
+    <view class="customer-detail-info-content">
+      <text>客户地址：</text>
+      <text style="font-weight:bolder">{{customerDetail.position}}</text>
+    </view>
+    <view class="customer-detail-info-content">
+      <text>电话：</text>
+      <text style="font-weight:bolder"></text>
+    </view>
+    <view class="customer-detail-info-content">
+      <text>传真：</text>
+      <text style="font-weight:bolder"></text>
+    </view>
+    <view class="customer-detail-info-title">
+      <text>其他信息</text>
+    </view>
+    <view class="customer-detail-info-content">
+      <text>最新活动记录：</text>
+      <text style="font-weight:bolder">{{customerDetail.whos}}-{{customerDetail.detail}}</text>
+    </view>
+    <view class="customer-detail-info-content">
+      <text>创建日期：</text>
+      <text style="font-weight:bolder">{{customerDetail.create_time}}</text>
+    </view>
+    <view class="customer-detail-info-content">
+      <text>最新修改日：</text>
+      <text style="font-weight:bolder">{{customerDetail.update_time}}</text>
+    </view>
+    <view class="customer-detail-info-content">
+      <text>最新修改人：</text>
+      <text style="font-weight:bolder">xxxxz</text>
+    </view>
+    <view class="customer-detail-info-edit">
+      <image src="/images/icon/other_icon/edit3.png"></image>
+      <text>编辑资料</text>
+    </view>
+  </view>
+</view>

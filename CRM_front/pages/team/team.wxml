@@ -1,0 +1,17 @@
+<!--team.wxml-->
+<view class="team-container">
+  <view class="team-row">
+  <image src="/images/icon/other_icon/phone.png"></image>
+    <text>手机通讯录</text></view>
+  <view class="team-row">
+  <image src="/images/icon/other_icon/group.png"></image>
+    <text>我的群组</text></view>
+  <view class="team-row">
+  <image src="/images/icon/other_icon/plus.png"></image>
+    <text>创建团队</text></view>
+  <view class="team-row">
+  <image src="/images/icon/other_icon/contacts.png"></image>
+    <text>常用联系人</text>
+  </view>
+
+</view>

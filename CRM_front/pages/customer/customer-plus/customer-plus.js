@@ -1,4 +1,5 @@
 // customer-plus.js
+var app = getApp()
 Page({
 
   /**
@@ -104,12 +105,11 @@ Page({
   formSubmit: function (e) {
     console.log(e.detail.value)
     wx.request({
-      url: 'http://192.168.3.158/wxes/public/index.php/home/Customer/add_Customer',
+      url: app.globalData.g_ip + '/wxes/public/index.php/home/Customer/add_Customer',
       data: e.detail.value,
       method: "POST",
       success: function (res) {
-        if(res.data.success)
-        {
+        if (res.data.success) {
           wx.showToast({
             title: '添加成功',
             icon: 'success',

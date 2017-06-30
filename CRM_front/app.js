@@ -1,3 +1,4 @@
+
 App({
   onLaunch: function () {
     var storageData = wx.getStorageSync('postList');
@@ -23,36 +24,35 @@ App({
               },
               success: function (res) {
                 that.globalData.g_userInfo.userInfo_openid = res.data
-                
+                wx.getUserInfo({
+                  success: function (res) {
+                    that.globalData.g_userInfo.userInfo = res.userInfo
+                    console.log(that.globalData.g_userInfo)
+                    wx.setStorageSync('user', that.globalData.g_userInfo)
+                    // 记录用户登录数据
+                    wx.request({
+                      url: that.globalData.g_ip + '/wxes/public/home/User/add_Users',
+                      method: 'POST',
+                      data: that.globalData.g_userInfo,
+                      header: {
+                        'content-type': 'application/json'
+                      },
+                      success: function (res) {
+                        console.log('charuok' + res.data)
+                      }
+                    })
+                  },
+                  fail: function (res) {
+                    console.log(res.data);
+                  }
+                })
               }
             })
 
           } else {
             console.log('获取用户登录态失败！' + res.errMsg)
           }
-          wx.getUserInfo({
-            success: function (res) {
-              that.globalData.g_userInfo.userInfo = res.userInfo
-              console.log(that.globalData.g_userInfo)
-              wx.setStorageSync('user', that.globalData.g_userInfo)
-              // 记录用户登录数据
-              wx.request({
-                url: 'http://192.168.3.158/wxes/public/index.php/home/User/add_Users',
-                //url:'http://localhost/test.php',
-                method: 'POST',
-                data: that.globalData.g_userInfo,
-                header: {
-                  'content-type': 'application/json'
-                },
-                success: function (res) {
-                  console.log('charuok'+res.data)
-                }
-              })
-            },
-            fail: function (res) {
-              console.log(res.data);
-            }
-          })
+
         }
       })
     }
@@ -60,13 +60,14 @@ App({
       this.globalData.g_userInfo = userInfoStorage;
     }
   },
+
   globalData: {
-    g_isPlayingMusic: false,
-    g_currentMusicPostId: null,
     doubanBase: "https://api.douban.com",
     g_userInfo: {
-      userInfo: null,
-      userInfo_openid: null
-    }
+      userInfo: wx.getStorageSync('user').userInfo,
+      userInfo_openid: wx.getStorageSync('user').userInfo_openid
+    },
+    g_ip: "http://192.168.3.158"
   }
+
 })

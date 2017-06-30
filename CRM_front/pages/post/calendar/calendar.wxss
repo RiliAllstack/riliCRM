@@ -98,3 +98,7 @@
     padding-bottom: 10rpx;
     font-size: 25rpx;
 }
+.calendar-detail text{
+  font-size:24rpx;
+  padding-left: 60rpx; 
+}

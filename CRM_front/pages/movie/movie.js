@@ -87,8 +87,12 @@ Page({
     })
     if(movieId ==4)
     wx.navigateTo({
-      url: '/pages/personer/personer',
+      url: '/pages/reports/reports',
     })
+    if (movieId == 6)
+      wx.navigateTo({
+        url: '/pages/team/team',
+      })
   },
 
   onBindFocus: function (event) {

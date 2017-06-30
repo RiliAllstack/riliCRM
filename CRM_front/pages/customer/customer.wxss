@@ -5,5 +5,30 @@
   position: fixed;
   width: 120rpx;
   height: 120rpx;
-  margin: 140% 0 0 80%;
+  margin: 126% 0 0 80%;
+}
+.choser {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #ededed;
+}
+.choser image{
+  margin-left: 2%; 
+  width: 60rpx;
+  height: 60rpx;
+}
+.choser-block{
+  text-align: center;
+  width: 43%;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  border-right: 1px solid #ededed;
+}
+.choser-block image{
+  width: 20rpx;
+  height: 20rpx;
+}
+.choser-block text{
+  font-size: 28rpx;
+  text-align: center;
 }

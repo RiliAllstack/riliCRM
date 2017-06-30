@@ -1,9 +1,22 @@
 <!--customer.wxml-->
 <import src="customer-item/customer-item-tpl.wxml" />
 <view>
-<image catchtap="onTapToPlus" class="fixedAdd" src="/images/icon/other_icon/plus-outline.svg"></image>
-<block wx:for="{{customerList}}" wx:for-item="item" wx:for-index="idx">
-    <view catchtap="onTapToDetail" data-post-id="{{item.customerId}}">
+  <view class="choser">
+    <view class="choser-block" catchtap="onChangeCustomer">
+      <text wx:if="{{indexC==0}}">我的客户</text>
+      <text wx:if="{{indexC==1}}">全部客户</text>
+      <image src="/images/icon/other_icon/arrow-down-b.png"></image>
+    </view>
+    <view class="choser-block" catchtap="onChangeTime">
+      <text wx:if="{{indexT==0}}">最新创建</text>
+      <text wx:if="{{indexT==1}}">最近活动记录</text>
+      <image src="/images/icon/other_icon/arrow-down-b.png"></image>
+    </view>
+    <image src="/images/icon/other_icon/plus_b.png" catchtap="onTapToPlus"></image>
+  </view>
+  <!--<image catchtap="onTapToPlus" class="fixedAdd" src="/images/icon/other_icon/plus-outline.svg"></image>-->
+  <block wx:for="{{customerList}}" wx:for-item="item" wx:for-index="idx">
+    <view catchtap="onTapToDetail" data-customerId="{{idx}}">
       <template is="customerItemTpl" data="{{...item}}" />
     </view>
   </block>

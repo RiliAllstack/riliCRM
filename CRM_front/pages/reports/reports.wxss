@@ -1,0 +1,59 @@
+/* personer.wxss */
+
+.choser {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #ededed;
+}
+.choser image{
+  margin-left: 2%; 
+  width: 60rpx;
+  height: 60rpx;
+}
+.choser-block{
+  text-align: center;
+  width: 43%;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  border-right: 1px solid #ededed;
+}
+.choser-block image{
+  width: 20rpx;
+  height: 20rpx;
+}
+.choser-block text{
+  font-size: 28rpx;
+  text-align: center;
+}
+
+.reports-container {
+  flex-direction: column;
+  display: flex;
+  margin: 20rpx 0 20rpx;
+  background-color: #fff;
+  border-bottom: 1px solid #ededed;
+}
+
+.reports-author-date {
+  margin: 10rpx 0 10rpx 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.reports-title {
+  font-size: 30rpx;
+  font-weight: bolder;
+  color: #333;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.reports-content {
+  color: #666;
+  font-size: 26rpx;
+  margin-bottom: 10rpx;
+  margin-left: 20rpx;
+  letter-spacing: 2rpx;
+  line-height: 40rpx;
+}

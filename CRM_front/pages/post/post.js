@@ -27,7 +27,7 @@ Page({
       url: 'message/message',
     })
   },
-  showTodos:function(){
+  showTodos: function () {
     wx.navigateTo({
       url: 'calendar/calendar',
     })
@@ -69,7 +69,7 @@ Page({
     var that = this;
     var openId = that.data.userInfo.openid
     wx.request({
-      url: 'http://192.168.3.158/wxes/public/home/Task/getTask?open_id=' + openId,
+      url: app.globalData.g_ip + '/wxes/public/home/Task/getTask?open_id=' + openId,
       success: function (res) {
         if (res.data.length >= 1) {
           var obj = {}
@@ -117,7 +117,7 @@ Page({
     console.log(e.currentTarget.dataset)
     var that = this
     wx.request({
-      url: 'http://192.168.3.158/wxes/public/index.php/home/Task/dealTask',
+      url: app.globalData.g_ip + '/wxes/public/home/Task/dealTask',
       method: 'POST',
       data:
       {

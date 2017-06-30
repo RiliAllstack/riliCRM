@@ -3,15 +3,7 @@
     <view class="customer-author-date">
     </view>
     <text class="customer-title">{{company}}</text>
-    <!--<image class="customer-image" src="{{customerImg}}" mode="aspectFill" />-->
-    <text class="customer-content">位置:{{location}}\n负责人：{{charger}}\n年产值：{{scale}}</text>
-    <view class="customer-like">
-      <text>合作情况：</text>
-      <image src="/images/icon/wx_app_star.png"></image>
-      <image src="/images/icon/wx_app_star.png"></image>
-      <image src="/images/icon/wx_app_star.png"></image>
-      <image src="/images/icon/wx_app_star@half.png"></image>
-      <image src="/images/icon/wx_app_star@none.png"></image>
-    </view>
+    <text class="customer-content">创建日期:{{update_time}}</text>
   </view>
+  
 </template>

@@ -30,7 +30,7 @@
       </view>
     </block>
   </view>
-  <view class="category-item">
+  <!--<view class="category-item">
     <block wx:for="{{api}}">
       <view class="detail-item" catchtap="{{item.tap}}">
         <image src="{{item.iconurl}}"></image>
@@ -47,7 +47,7 @@
         <view class="detail-item-btn"></view>
       </view>
     </block>
-  </view>
+  </view>-->
   <modal title="指南针" confirm-text="确定" no-cancel hidden="{{compassHidden}}" bindconfirm="hideCompass" confirm-color="#1F4BA5">
     当前方向：偏北{{compassVal}}°
   </modal>

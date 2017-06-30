@@ -1,0 +1,20 @@
+<!--mates.wxml-->
+<view class="team-container">
+  <view class="mates-item">
+    <text>选择联系人</text>
+    <button type="primary" catchtap="returnChosenInfo">确定({{lengthChosen}}/{{lengthAll}})</button>
+  </view>
+<checkbox-group  bindchange="bindCheckBox">
+  <view class="mates-item" wx:for="{{team[0].data}}">
+    <image src="{{item.avatarUrl}}"></image>
+    <text>{{item.nickName}}</text>
+    <checkbox value="{{item.openid}}-{{item.nickName}}-{{type}}" checked=""/>
+  </view>
+
+  <view class="mates-item" wx:for="{{team[1].data}}">
+    <image src="{{item.avatarUrl}}"></image>
+    <text>{{item.nickName}}</text>
+    <checkbox value="{{item.openid}}-{{item.nickName}}-{{type}}" checked=""/>
+  </view>
+  </checkbox-group>
+</view>

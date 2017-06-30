@@ -1,0 +1,51 @@
+<!--reports-detail.wxml-->
+<view class="category-item">
+  <view class="detail-item">
+    <text>标题:</text>
+    <input placeholder="x月工作报告" />
+  </view>
+  <view class="detail-item2">
+    <text>正文:</text>
+    <textarea maxlength="-1" />
+  </view>
+  <view class="detail-item">
+    <text>发送给:</text>
+    <image src="/images/icon/other_icon/add.png"></image>
+  </view>
+  <view class="detail-item">
+    <text>抄送给:</text>
+    <image src="/images/icon/other_icon/add.png"></image>
+  </view>
+  <view class="detail-item">
+    <text>图片:</text>
+    <label style="color:#d9d9d9;font-size:30rpx;">（最多8张）</label>
+    <image src="/images/icon/other_icon/img_upload.png" catchtap="uploadImg"></image>
+  </view>
+  <view class="image-column">
+    <view class="image-list">
+      <view wx:for="{{imgSrcs1}}" catchtap="previewImg" data-id="{{index}}">
+        <view class="img-delete">
+          <image src="/images/icon/wx_app_xx.png" catchtap="remove" data-id="{{index}}"></image>
+        </view>
+        <image mode="aspectFill" src="{{item}}"></image>
+      </view>
+    </view>
+    <view class="image-list">
+      <view wx:for="{{imgSrcs2}}" catchtap="previewImg" data-id="{{index+4}}">
+        <view class="img-delete">
+          <image src="/images/icon/wx_app_xx.png" catchtap="remove" data-id="{{index+4}}"></image>
+        </view>
+        <image mode="aspectFill" src="{{item}}"></image>
+      </view>
+      
+    </view>
+  </view>
+  <view class="detail-item">
+    <text>位置:</text>
+    <label>·{{address}}</label>
+    <image src="/images/icon/other_icon/position.png" catchtap="getPosition"></image>
+  </view>
+
+
+  <button type="primary">发送</button>
+</view>

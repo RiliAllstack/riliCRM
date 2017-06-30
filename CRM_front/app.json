@@ -1,12 +1,15 @@
 {
   "pages": [
-    "pages/welcome/welcome",
+    "pages/reports/reports-plus/reports-plus",
+    "pages/team/mates/mates",
+    "pages/team/team",
     "pages/post/post",
-    "pages/post/task/task",
-
-  
-    "pages/customer/customer-plus/customer-plus",
     
+    "pages/welcome/welcome",
+    "pages/customer/customer-detail/customer-detail",
+    "pages/customer/customer",
+    "pages/post/task/task",
+    "pages/customer/customer-plus/customer-plus",
     "pages/post/message/message",
     "pages/movie/movie",
     "pages/movie/more-movie/more-movie",
@@ -21,9 +24,9 @@
     "pages/setting/open-api/wx-pay/wx-pay",
     "pages/setting/others/wx-key/wx-key",
     "pages/setting/others/scroll-view/scroll-view",
-    "pages/customer/customer",
-    "pages/personer/personer",
-    "pages/post/calendar/calendar"
+    "pages/reports/reports",
+    "pages/post/calendar/calendar",
+    "pages/reports/reports-detail/reports-detail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#4A6141"
@@ -38,18 +41,18 @@
       {
         "pagePath": "pages/post/post",
         "text": "消息",
-        "iconPath": "images/icon/wx_app_message.png",
-        "selectedIconPath": "images/icon/wx_app_message.png"
+        "selectedIconPath": "images/icon/other_icon/message.png",
+        "iconPath": "images/icon/wx_app_message.png"
       },
       {
         "pagePath": "pages/movie/movie",
         "text": "CRM",
-        "iconPath": "images/icon/wx_app_list.png",
-        "selectedIconPath": "images/icon/wx_app_list.png"
+        "selectedIconPath": "images/icon/other_icon/app_list.png",
+        "iconPath": "images/icon/wx_app_list.png"
       },
       {
         "pagePath": "pages/setting/setting",
-        "text": "我的",
+        "text": "设置",
         "iconPath": "images/icon/wx_app_setting.png",
         "selectedIconPath": "images/icon/wx_app_setting@HL.png"
       }
