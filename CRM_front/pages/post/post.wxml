@@ -1,10 +1,5 @@
 <import src="post-item/post-item-tpl.wxml" />
 <view>
-  <view class="search">
-    <icon type="search" class="search-img" size="13" color="#405f80"></icon>
-    <input type="text" placeholder="搜索" placeholder-class="placeholder" bindfocus="onBindFocus" value="{{inputValue}}" bindconfirm="onBindConfirm" />
-    <image wx:if="{{searchPanelShow}}" src="/images/icon/wx_app_xx.png" class="xx-img" catchtap="onCancelImgTap"></image>
-  </view>
   <view class="category-item">
     <block wx:for="{{device}}">
       <view class="detail-item" catchtap="{{item.tap}}" hover="true" hover-class="green_hover" hover-start-time="1" hover-stay-time="200">
@@ -19,7 +14,7 @@
   </view>
   <view wx:if="{{isNullTask}}" class="journey-container">
     <image src="../../images/icon/other_icon/calendar.png"></image>
-    <text class="journey">今日还没有安排日程哦</text>
+    <text class="journey">今日还没有安排日程</text>
     <text class="journey" style="color:blue" catchtap="onArrange">马上安排</text>
   </view>
   <view wx:if="{{!isNullTask}}" class="board">

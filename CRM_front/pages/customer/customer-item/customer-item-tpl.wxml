@@ -3,7 +3,6 @@
     <view class="customer-author-date">
     </view>
     <text class="customer-title">{{company}}</text>
-    <text class="customer-content">创建日期:{{update_time}}</text>
+    <text class="customer-content">创建日期:{{create_time}}-修改日期:{{update_time}}</text>
   </view>
-  
 </template>

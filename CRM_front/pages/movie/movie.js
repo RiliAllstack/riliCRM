@@ -20,7 +20,7 @@ Page({
     wx.showNavigationBarLoading();
 
     this.processDoubanData(this.data.postList.onlines, "inTheaters", "已上线");
-    this.processDoubanData(this.data.postList.waittingonline, "comingSoon", "即将发布。。");
+    this.processDoubanData(this.data.postList.waittingonline, "comingSoon", "更多功能，敬请期待。。");
   },
 
   getMovieListData: function (url, settedKey, categoryTitle) {
@@ -89,6 +89,10 @@ Page({
     wx.navigateTo({
       url: '/pages/reports/reports',
     })
+    if (movieId == 5)
+      wx.navigateTo({
+        url: '/pages/knowledge/knowledge',
+      })
     if (movieId == 6)
       wx.navigateTo({
         url: '/pages/team/team',

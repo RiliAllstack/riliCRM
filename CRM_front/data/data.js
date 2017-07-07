@@ -20,11 +20,17 @@ var postList = {
       postImg: "/images/icon/other_icon/reports.png",
       postId: 4,
     },
-    {
-      title: "绩效成绩",
-      postImg: "/images/icon/other_icon/jixiao.png",
-      postId: 5,
+    
+    {   title: "知识库",
+      postImg: "/images/icon/other_icon/knowledge.png",
+        postId: 5,
     },
+
+    // {
+    //   title: "绩效成绩",
+    //   postImg: "/images/icon/other_icon/jixiao.png",
+    //   postId: 5,
+    // },
     {
       title: "我的团队",
       postImg: "/images/icon/other_icon/team.png",

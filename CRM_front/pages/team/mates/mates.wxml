@@ -8,13 +8,13 @@
   <view class="mates-item" wx:for="{{team[0].data}}">
     <image src="{{item.avatarUrl}}"></image>
     <text>{{item.nickName}}</text>
-    <checkbox value="{{item.openid}}-{{item.nickName}}-{{type}}" checked=""/>
+    <checkbox value="{{item.Id}}-{{item.nickName}}-{{type}}" checked=""/>
   </view>
 
   <view class="mates-item" wx:for="{{team[1].data}}">
     <image src="{{item.avatarUrl}}"></image>
     <text>{{item.nickName}}</text>
-    <checkbox value="{{item.openid}}-{{item.nickName}}-{{type}}" checked=""/>
+    <checkbox value="{{item.Id}}-{{item.nickName}}-{{type}}" checked=""/>
   </view>
   </checkbox-group>
 </view>

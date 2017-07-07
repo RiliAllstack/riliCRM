@@ -1,0 +1,14 @@
+<!--company-knowledge.wxml-->
+<view>
+  <view class="category-item">
+    <block wx:for="{{device}}">
+      <view class="detail-item" catchtap="{{item.tap}}" hover="true" hover-class="green_hover" hover-start-time="1" hover-stay-time="200">
+        <image src="{{item.iconurl}}"></image>
+        <view class="msgcounts">
+          <text>{{item.title}}</text>
+        </view>
+        <view class="detail-item-btn"></view>
+      </view>
+    </block>
+  </view>
+</view>

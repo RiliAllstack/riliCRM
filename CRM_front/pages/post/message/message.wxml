@@ -2,15 +2,20 @@
 
 <view class="container">
   
-  <view>
+  <!--<view>
     <scroll-view scroll-y style="height: 1100rpx;" bindscrolltolower="lower">
       <block wx:for="{{replyTemArray}}" wx:key="">
         <template is="wxParse" data="{{wxParseData:item}}" />
       </block>
     </scroll-view>
-  </view>
-  <view class="sendmessage">
+  </view>-->
+  <!--<view class="sendmessage">
     <input id="message" bindinput="bindChange" value="{{message}}"></input>
     <button type="primary" bindtap="add">发送</button>
+  </view>-->
+  <view class="messagebox">
+  <text>6月7</text>
+  <view class="classname">
+  <image src="src"></image></view>
   </view>
 </view>

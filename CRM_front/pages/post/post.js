@@ -7,8 +7,8 @@ Page({
 
     device: [
       { iconurl: '/images/icon/other_icon/pin.png', title: '待办', tap: 'showTodos' },
-      { iconurl: '/images/icon/other_icon/bell-out.png', title: '通知', tap: 'showNetWork' },
-      { iconurl: '/images/icon/other_icon/boxes.png', title: '公告', tap: 'showMap' },
+      { iconurl: '/images/icon/other_icon/bell-out.png', title: '通知', tap: 'showNotice' },
+      { iconurl: '/images/icon/other_icon/boxes.png', title: '公告', tap: 'showMessage' },
     ],
     taskShowStatus: []
   },
@@ -22,7 +22,7 @@ Page({
   onShow: function () {
     this.selectTask()
   },
-  showMap: function () {
+  showMessage: function () {
     wx.navigateTo({
       url: 'message/message',
     })
@@ -30,6 +30,11 @@ Page({
   showTodos: function () {
     wx.navigateTo({
       url: 'calendar/calendar',
+    })
+  },
+  showNotice:function(){
+    wx.navigateTo({
+      url: 'notice/notice',
     })
   },
 
@@ -44,7 +49,7 @@ Page({
   },
   onArrange: function () {
     wx.showActionSheet({
-      itemList: ['新建日程', '新建任务'],
+      itemList: ['新建任务'],
       itemColor: "#405f80",
       success: function (res) {
         if (res.tapIndex == 0) {

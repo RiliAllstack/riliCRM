@@ -1,18 +1,24 @@
 <!--personer.wxml-->
 <view class="choser">
   <view class="choser-block" catchtap="onChangeReports">
-    <text>所有报告</text>
+    <text wx:if="{{indexC==0}}">发给我的报告</text>
+    <text wx:if="{{indexC==1}}">我发出去的报告</text>
+    <text wx:if="{{indexC==2}}">全部报告</text>
+    <text wx:if="{{indexC==3}}">待阅报告</text>
     <image src="/images/icon/other_icon/arrow-down-b.png"></image>
   </view>
   <view class="choser-block" catchtap="onChangeTime">
-    <text>最新创建</text>
+    <text wx:if="{{indexT==0}}">最新创建</text>
+    <text wx:if="{{indexT==1}}">最新修改</text>
+    <text wx:if="{{indexT==2}}">最近七日</text>
+    <text wx:if="{{indexT==3}}">当月</text>
     <image src="/images/icon/other_icon/arrow-down-b.png"></image>
   </view>
   <image src="/images/icon/other_icon/plus_b.png" catchtap="onTapToPlus"></image>
 </view>
 
-<view class="reports-container" wx:for="{{reports}}" catchtap="onTapToDetail" data-reportid="index">
+<view class="reports-container" wx:for="{{reports}}" catchtap="onTapToDetail" data-reportidx="{{index}}">
   <view class="reports-author-date"></view>
-  <text class="reports-title">{{item.nickName}}的报告【{{item.create_time}}】</text>
-  <text class="reports-content">创建日期:{{update_time}}</text>
+  <text class="reports-title">{{item.nickName}}的报告【{{item.title}}】</text>
+  <text class="reports-content">创建日期:{{item.create_time}}</text>
 </view>

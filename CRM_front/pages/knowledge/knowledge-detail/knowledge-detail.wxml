@@ -1,0 +1,14 @@
+<!--knowledge-detail.wxml-->
+<view>
+  <view class="category-item">
+    <block wx:for="{{files.file}}">
+      <view class="detail-item" catchtap="openFile" data-fileName="{{item}}" hover="true" hover-class="green_hover" hover-start-time="1" hover-stay-time="200">
+        <!--<image src="{{item.iconurl}}"></image>-->
+        <view class="msgcounts">
+          <text>{{item}}</text>
+        </view>
+        <!--<view class="detail-item-btn"></view>-->
+      </view>
+    </block>
+  </view>
+</view>

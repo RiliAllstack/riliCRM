@@ -2,61 +2,30 @@
 var app = new getApp()
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-    address: ''
+    address: '',
+    openid: app.globalData.g_userInfo.userInfo_openid.openid,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-    this._updateChosenStatus()
+    var data = JSON.parse(options.data)
+    this.setData({
+      title: data.title,
+      content: data.content,
+      recipients: data.recipients,
+      copy: data.copy,
+      nickName: data.nickName,
+      imgList: data.imgList,
+      position: data.position,
+      comments: data.comments,
+      create_time: data.create_time,
+      readOnly :true
+    })
+    console.log(this.data)
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function (options) {
     this._updateChosenStatus()
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
   },
 
   getPosition: function () {
@@ -73,11 +42,12 @@ Page({
     })
   },
   uploadImg: function () {
+    //清除缓存文件
     wx.getSavedFileList({
       success: function (res) {
-        if (res.fileList.length > 0) {
+        for (var i = 0; i < res.fileList.length; i++) {
           wx.removeSavedFile({
-            filePath: res.fileList[0].filePath,
+            filePath: res.fileList[i].filePath,
             complete: function (res) {
               console.log(res)
             }
@@ -85,9 +55,9 @@ Page({
         }
       }
     });
+    var that = this
     var imgSrc = [];
     wx.setStorageSync("imgSrcs", imgSrc);
-    var that = this
     wx.chooseImage({
       count: 8, // 默认9
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
@@ -100,13 +70,10 @@ Page({
         });
         setTimeout(function () {
           wx.hideToast();
-          that.show()
+          that._show();
         }, 1000);
-
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths;
-
-
         var imgList = wx.getStorageSync("imgSrcs");
         for (var i = 0; i < tempFilePaths.length; i++) {
           wx.saveFile({
@@ -134,7 +101,7 @@ Page({
       }
     })
   },
-  show: function () {
+  _show: function () {
     var imgList = wx.getStorageSync("imgSrcs");
     var imgList1 = new Array()
     var imgList2 = new Array()
@@ -159,7 +126,7 @@ Page({
     var imgList = wx.getStorageSync("imgSrcs");
     imgList.splice(e.currentTarget.dataset.id, 1)
     wx.setStorageSync("imgSrcs", imgList);
-    this.show();
+    this._show();
   },
   previewImg: function (e) {
     wx.previewImage({
@@ -171,13 +138,23 @@ Page({
     })
   },
   addReports: function (e) {
-    e.detail.value.recipients = 1
-    e.detail.value.copy = 2
     e.detail.value.openid = app.globalData.g_userInfo.userInfo_openid.openid
-    e.detail.value.id = 0
-    console.log(e.detail.value)
+    e.detail.value.imgList = wx.getStorageSync("imgSrcs")
+    e.detail.value.recive = this.data.matesChosen
+    var that = this
+    //记录报告
+    wx.request({
+      url: 'http://192.168.3.158/wxes/public/home/Reports/add_Reports',
+      data: e.detail.value,
+      method: "POST",
+      success: function (res) {
+        console.log(res.data)
+      }
+    })
+    //储存报告中的图片以及文件
     wx.getSavedFileList({
       success: function (res) {
+        console.log(res.fileList.length)
         if (res.fileList.length > 0) {
           var arr = []
           for (var key in res.fileList) {
@@ -189,20 +166,11 @@ Page({
               filePath: arr[i],
               name: 'file',
               header: { "Content-Type": "multipart/form-data" },
-              formData: e.detail.value,
+              formData: {
+                openid: e.detail.value.openid
+              },
               success: function (res) {
-                var dd = res.data;
-                console.log(dd)
-                if (res.data.success) {
-                  wx.showToast({
-                    title: '上传成功',
-                    icon: 'success',
-                    duration: 2500
-                  })
-                  // wx.navigateBack({
-                  //   url: '/pages/customer/customer',
-                  // })
-                }
+                console.log(res.data)
               }
             })
           }
@@ -212,17 +180,17 @@ Page({
   },
   clean: function () {
     wx.setStorageSync("imgSrcs", []);
-    this.show();
+    this._show();
     this.setData({
       address: ''
     })
   },
   selectmates: function (e) {
     wx.navigateTo({
-      url: "/pages/team/mates/mates?type="+e.currentTarget.dataset.type,
+      url: "/pages/team/mates/mates?type=" + e.currentTarget.dataset.type,
     })
   },
-  _updateChosenStatus:function(){
+  _updateChosenStatus: function () {
     var matesChosen = wx.getStorageSync("matesChosen")
     var arr = new Array()
     for (var i = 0; i < matesChosen.length; i++) {

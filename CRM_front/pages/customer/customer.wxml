@@ -3,7 +3,7 @@
 <view>
   <view class="choser">
     <view class="choser-block" catchtap="onChangeCustomer">
-      <text wx:if="{{indexC==0}}">我的客户</text>
+      <text wx:if="{{indexC==0}}">与我相关的客户</text>
       <text wx:if="{{indexC==1}}">全部客户</text>
       <image src="/images/icon/other_icon/arrow-down-b.png"></image>
     </view>
@@ -15,8 +15,8 @@
     <image src="/images/icon/other_icon/plus_b.png" catchtap="onTapToPlus"></image>
   </view>
   <!--<image catchtap="onTapToPlus" class="fixedAdd" src="/images/icon/other_icon/plus-outline.svg"></image>-->
-  <block wx:for="{{customerList}}" wx:for-item="item" wx:for-index="idx">
-    <view catchtap="onTapToDetail" data-customerId="{{idx}}">
+  <block wx:for="{{customerList}}" wx:for-item="item" wx:for-index="idx" >
+    <view catchtap="onTapToDetail" data-customerId="{{idx}}"  bindtouchstart="mytouchstart" bindtouchend="mytouchend">
       <template is="customerItemTpl" data="{{...item}}" />
     </view>
   </block>

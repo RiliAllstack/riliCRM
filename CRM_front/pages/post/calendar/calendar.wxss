@@ -65,6 +65,7 @@
   position: absolute;
   width: 10rpx;
   height: 10rpx;
+  padding-left: 25rpx;
 }
 .calendar-body-day{
     text-align: center;

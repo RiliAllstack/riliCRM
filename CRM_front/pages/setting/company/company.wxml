@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="category-item">
+    <view class="detail-item">
+      <label>请填写公司相关信息以便管理员审核通过</label>
+    </view>
+  </view>
+  <view class="category-item">
+    <view class="detail-item">
+      <text>公司名称</text>
+      <input placeholder="请填写完整的公司名称" bindinput="bindCompanyInput"></input>
+    </view>
+    <view class="detail-item">
+      <text>选择角色</text>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          当前选择：{{array[index]}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <button type="primary" style="position:absolute;margin-top:1000rpx;width:100%;" catchtap="submit">提交审核</button>
+</view>

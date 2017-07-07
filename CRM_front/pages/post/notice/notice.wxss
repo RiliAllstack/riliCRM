@@ -1,0 +1,61 @@
+/* notice.wxss */
+.title {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #ededed;
+}
+
+.title-block {
+  text-align: center;
+  width: 50%;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  border-right: 1px solid #ededed;
+}
+
+.title-block text {
+  font-size: 32rpx;
+  text-align: center;
+}
+.reports-container{
+  display: flex;
+  flex-direction: column;
+}
+.reports-container-item {
+  display: flex;
+  flex-direction: row;
+  margin: 10rpx;
+  border-bottom: 1px solid #ededed;
+}
+.reports-container-item image{
+  width: 81rpx;
+  height: 81rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  
+}
+.content {
+  display: flex;
+  flex-direction: column;
+}
+.motto{
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.in{
+  font-size: 24rpx;
+}
+.agree{
+  width: 100rpx;
+  height: 60rpx;
+  font-size: 24rpx;
+  margin-left: 100rpx;
+  margin-top: 20rpx;
+}
+.agree-text{
+  width: 100rpx;
+  height: 60rpx;
+  font-size: 24rpx;
+  margin-left: 120rpx;
+  margin-top: 40rpx;
+}

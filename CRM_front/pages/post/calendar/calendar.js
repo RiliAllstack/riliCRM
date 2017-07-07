@@ -99,7 +99,7 @@ Page({
   getTaskMonth: function () {
     var that = this;
     wx.request({
-      url: app.globalData.g_ip + '/wxes/public/index.php/home/Task/select_TaskList?open_id=' + that.data.userInfo.openid + '&start_time=' + '2017-06',
+      url: app.globalData.g_ip + '/wxes/public/index.php/home/Task/select_TaskList?open_id=' + that.data.userInfo.openid + '&start_time=' + '2017-07',
       success: function (res) {
         pageData.detailData.curDayTask = res.data[pageData.detailData.curDay - 1].data;
         that.setData({

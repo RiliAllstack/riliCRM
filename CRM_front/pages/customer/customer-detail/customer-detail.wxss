@@ -1,5 +1,4 @@
 /* customer-detail.wxss */
-
 .title {
   display: flex;
   flex-direction: row;
@@ -50,7 +49,16 @@
 .record1-content {
   border: 1px solid #ededed;
   width: 97%;
-  height: 100rpx;
+  
+}
+.image-list{
+  display: flex;
+  flex-direction: row;
+}
+.image-list image{
+  margin-left: 20rpx;
+  width: 80rpx;
+  height: 80rpx;
 }
 
 .record1-content-content {
@@ -169,7 +177,7 @@
   margin-top: 12rpx;
   font-size: 30rpx;
   height: 60rpx;
-  width: 56%;
+  width: 66%;
 }
 
 .customer-detail-record-send image {
@@ -187,7 +195,8 @@
 .img_upload image {
   width: 56rpx;
   height: 56rpx;
-  margin-top: 14rpx;
-  padding-left: 20rpx;
-  border-left: 1px solid #d9d9d9;
+  margin-top: 17rpx;
+  margin-left:20rpx;
+  padding-right: 30rpx;
+  border-right: 1px solid #d9d9d9;
 }

@@ -1,0 +1,28 @@
+<!--notice.wxml-->
+<view class="title">
+  <view class="title-block" catchtap="changeTab" data-bl="1">
+    <text wx:if="{{bl!=1}}">团队申请</text>
+    <text wx:if="{{bl==1}}" style="border-bottom: 1px solid #00a6e7;color:#00a6e7">团队申请</text>
+  </view>
+  <view class="title-block" catchtap="changeTab" data-bl="2">
+    <text wx:if="{{bl!=2}}">其 他</text>
+    <text wx:if="{{bl==2}}" style="border-bottom: 1px solid #00a6e7;color:#00a6e7">其 他</text>
+  </view>
+</view>
+
+<view class="reports-container" wx:if="{{bl==1}}">
+  <view class="reports-container-item" wx:for="{{applies}}">
+    <image src="{{item.avatarUrl}}"></image>
+    <view class="content">
+      <text class="motto">{{item.nickName}}</text>
+      <text class="in">申请加入：{{item.company_name}}</text>
+      <text class="in">申请时间：{{item.create_time}}</text>
+    </view>
+    <button class="agree" type="primary" catchtap="agree" wx:if="{{item.ispass==0}}">同意</button>
+    <text class="agree-text" wx:if="{{item.ispass==1}}">已同意</text>
+  </view>
+ 
+</view>
+<view class="reports-container" wx:if="{{bl==2}}">
+  暂无
+</view>

@@ -1,8 +1,8 @@
 <!--team.wxml-->
 <view class="team-container">
-  <view class="team-row">
+  <!--<view class="team-row">
   <image src="/images/icon/other_icon/phone.png"></image>
-    <text>手机通讯录</text></view>
+    <text>手机通讯录</text></view>-->
   <view class="team-row">
   <image src="/images/icon/other_icon/group.png"></image>
     <text>我的群组</text></view>
@@ -13,5 +13,13 @@
   <image src="/images/icon/other_icon/contacts.png"></image>
     <text>常用联系人</text>
   </view>
+<view class="mates-item" wx:for="{{team[0].data}}">
+    <image src="{{item.avatarUrl}}"></image>
+    <text>{{item.nickName}}</text>
+  </view>
 
+  <view class="mates-item" wx:for="{{team[1].data}}">
+    <image src="{{item.avatarUrl}}"></image>
+    <text>{{item.nickName}}</text>
+  </view>
 </view>

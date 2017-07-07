@@ -1,56 +1,101 @@
 <!--reports-plus.wxml-->
 <form bindsubmit="addReports" bindreset="formReset">
-<view class="category-item">
-  <view class="detail-item">
-    <text>标题:</text>
-    <input placeholder="x月工作报告" name="title"/>
-  </view>
-  <view class="detail-item2" >
-    <text>正文:</text>
-    <textarea maxlength="-1" name="content"/>
-  </view>
-  <view class="detail-item" catchtap="selectmates" data-type="1">
-    <text>发送给:</text>
-    <view style="font-size:26rpx;margin-left:10rpx;" wx:for="{{matesChosen}}" wx:if="{{item.type==1}}">{{item.name}}、</view>
-    <image src="/images/icon/other_icon/add.png"></image>
-  </view>
-  <view class="detail-item" catchtap="selectmates" data-type="2">
-    <text>抄送给:</text>
-    <view style="font-size:26rpx;margin-left:10rpx;" wx:for="{{matesChosen}}" wx:if="{{item.type==2}}">{{item.name}}、</view>
-    <image src="/images/icon/other_icon/add.png"></image>
-  </view>
-  <view class="detail-item" name="imgList" catchtap="uploadImg">
-    <text>图片:</text>
-    <label style="color:#d9d9d9;font-size:30rpx;">（最多8张）</label>
-    <image src="/images/icon/other_icon/img_upload.png" ></image>
-  </view>
-  <view class="image-column">
-    <view class="image-list">
-      <view wx:for="{{imgSrcs1}}" catchtap="previewImg" data-id="{{index}}">
-        <view class="img-delete">
-          <image src="/images/icon/wx_app_xx.png" catchtap="remove" data-id="{{index}}"></image>
+  <view class="category-item">
+
+    <view class="detail-item">
+      <text>标题:</text>
+      <input placeholder="x月工作报告" name="title" wx:if="{{!readOnly}}" />
+      <input name="title" disabled="disabled" value="{{title}}" wx:if="{{readOnly}}" />
+    </view>
+
+    <view class="detail-item2">
+      <text>正文:</text>
+      <textarea maxlength="-1" name="content" wx:if="{{!readOnly}}" />
+      <textarea name="content" disabled="disabled" value="{{content}}" wx:if="{{readOnly}}" />
+    </view>
+
+    <view class="detail-item" catchtap="selectmates" data-type="1" wx:if="{{!readOnly}}">
+      <text>发送给:</text>
+      <view style="font-size:26rpx;margin-left:10rpx;" wx:for="{{matesChosen}}" wx:if="{{item.type==1}}">{{item.name}}、</view>
+      <image src="/images/icon/other_icon/add.png"></image>
+    </view>
+    <view class="detail-item" wx:if="{{readOnly}}">
+      <text>发送给:</text>
+      <view style="font-size:26rpx;margin-left:10rpx;">{{recipients}}</view>
+    </view>
+
+    <view class="detail-item" catchtap="selectmates" data-type="2" wx:if="{{!readOnly}}">
+      <text>抄送给:</text>
+      <view style="font-size:26rpx;margin-left:10rpx;" wx:for="{{matesChosen}}" wx:if="{{item.type==2}}">{{item.name}}、</view>
+      <image src="/images/icon/other_icon/add.png"></image>
+    </view>
+    <view class="detail-item" wx:if="{{readOnly}}">
+      <text>抄送给:</text>
+      <view style="font-size:26rpx;margin-left:10rpx;">{{copy}}</view>
+    </view>
+
+    <view class="detail-item" name="imgList" catchtap="uploadImg" wx:if="{{!readOnly}}">
+      <text>图片:</text>
+      <label style="color:#d9d9d9;font-size:30rpx;">（最多8张）</label>
+      <image src="/images/icon/other_icon/img_upload.png"></image>
+    </view>
+    <view class="image-column">
+      <view class="image-list">
+        <view wx:for="{{imgSrcs1}}" catchtap="previewImg" data-id="{{index}}">
+          <view class="img-delete">
+            <image src="/images/icon/wx_app_xx.png" catchtap="remove" data-id="{{index}}"></image>
+          </view>
+          <image mode="aspectFill" src="{{item}}"></image>
         </view>
-        <image mode="aspectFill" src="{{item}}"></image>
+      </view>
+      <view class="image-list">
+        <view wx:for="{{imgSrcs2}}" catchtap="previewImg" data-id="{{index+4}}">
+          <view class="img-delete">
+            <image src="/images/icon/wx_app_xx.png" catchtap="remove" data-id="{{index+4}}"></image>
+          </view>
+          <image mode="aspectFill" src="{{item}}"></image>
+        </view>
       </view>
     </view>
-    <view class="image-list">
-      <view wx:for="{{imgSrcs2}}" catchtap="previewImg" data-id="{{index+4}}">
-        <view class="img-delete">
-          <image src="/images/icon/wx_app_xx.png" catchtap="remove" data-id="{{index+4}}"></image>
+
+    <view class="detail-item" name="imgList" catchtap="uploadImg" wx:if="{{readOnly}}">
+      <text>图片:</text>
+    </view>
+    <view class="image-column">
+      <view class="image-list">
+        <view wx:for="{{imgList}}" catchtap="previewImg" data-id="{{index}}" wx:if="{{index<4 && item!=false}}">
+          <image mode="aspectFill" src="http://192.168.3.158/wxes/public/uploads/{{openid}}/{{item}}"></image>
         </view>
-        <image mode="aspectFill" src="{{item}}"></image>
       </view>
-      
+      <view class="image-list">
+        <view wx:for="{{imgList}}" catchtap="previewImg" data-id="{{index+4}}" wx:if="{{index>=4}}">
+          <image mode="aspectFill" src="http://192.168.3.158/wxes/public/uploads/{{openid}}/{{item}}"></image>
+        </view>
+
+      </view>
+    </view>
+
+    <view class="detail-item" name="position" catchtap="getPosition" wx:if="{{!readOnly}}">
+      <text>位置:</text>
+      <input disabled="disabled" value="·{{address}}" name="position"></input>
+      <image src="/images/icon/other_icon/position.png"></image>
+    </view>
+    <view class="detail-item" name="position" catchtap="getPosition" wx:if="{{readOnly}}">
+      <text>位置:</text>
+      <input disabled="disabled" value="{{position}}" name="position"></input>
+      <image src="/images/icon/other_icon/position.png"></image>
+    </view>
+
+    <view wx:if="{{!readOnly}}">
+      <button formType="submit" type="primary">发送</button>
+      <button formType="reset" type="warn" style="position: fixed;width: 100%;top: 90%;" catchtap="clean">清空</button>
+    </view>
+    <view class="reports-detail-record-send" wx:if="{{readOnly}}">
+      <view class="img_upload" catchtap="uploadImg">
+        <image src="/images/icon/other_icon/img_upload.png"></image>
+      </view>
+      <input placeholder="快速记录" bindinput="bindSingleRecord" />
+      <image src="/images/icon/other_icon/redo.png" catchtap="sendRecords"></image>
     </view>
   </view>
-  <view class="detail-item" name="position" catchtap="getPosition">
-    <text>位置:</text>
-    <input disabled="disabled" value="·{{address}}" name="position"></input>
-    <image src="/images/icon/other_icon/position.png"></image>
-  </view>
-
-
-  <button formType="submit" type="primary">发送</button>
-  <button formType="reset" type="warn" style="position: fixed;width: 100%;top: 90%;" catchtap="clean">清空</button>
-</view>
 </form>

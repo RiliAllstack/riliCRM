@@ -60,6 +60,7 @@ Page({
 
     wx.connectSocket({
       url: 'ws://192.168.3.7:9505'
+      //url:'wss://saas2.lcola.cn'
     })
     wx.onSocketOpen(function (res) {
       console.log('WebSocket连接已打开！')
