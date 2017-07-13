@@ -10,19 +10,20 @@
   </view>
 </view>
 <view class="customer-detail">
-  <view class="customer-detail-followup" wx:if="{{bl==1}}">
-    <view wx:for="{{records}}" wx:for-item="itemTime">
+  <view class="customer-detail-followup" wx:if="{{bl==1}}" >
+    <view wx:for="{{records}}" wx:for-item="itemTime" >
       <view class="record-time">
         <text>{{itemTime.create_time}}</text>
 
       </view>
-      <view wx:for="{{itemTime.data}}" wx:for-item="itemTimeData">
+      <view wx:for="{{itemTime.data}}" wx:for-item="itemTimeData" >
         <view class="customer-detail-record1" wx:if="{{itemTimeData.type==2}}">
           <view class="lines"></view>
           <view class="record1-content">
             <view class="record1-content-title">
-              <image src="/images/icon/other_icon/sticky.png"></image>
+              <image class="record1-content-title-image" src="/images/icon/other_icon/sticky.png"></image>
               <text>来自{{itemTimeData.whos}}</text>
+              <image class="record-delete" src="/images/icon/other_icon/delete.png" catchtap="recordDelete" data-recordid="{{itemTimeData.id}}"></image>
             </view>
             <view class="record1-content-content">
               <text>{{itemTimeData.detail}}</text>

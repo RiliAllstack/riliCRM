@@ -16,7 +16,7 @@
   </view>
   <!--<image catchtap="onTapToPlus" class="fixedAdd" src="/images/icon/other_icon/plus-outline.svg"></image>-->
   <block wx:for="{{customerList}}" wx:for-item="item" wx:for-index="idx" >
-    <view catchtap="onTapToDetail" data-customerId="{{idx}}"  bindtouchstart="mytouchstart" bindtouchend="mytouchend">
+    <view catchtap="onTapToDetail" data-customerId="{{idx}}" bindtouchstart="mytouchstart" bindtouchend="mytouchend">
       <template is="customerItemTpl" data="{{...item}}" />
     </view>
   </block>

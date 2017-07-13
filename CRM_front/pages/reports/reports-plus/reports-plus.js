@@ -10,6 +10,8 @@ Page({
   onLoad: function (options) {
     var data = JSON.parse(options.data)
     this.setData({
+      readOnly: true,
+      report_id: data.id,
       title: data.title,
       content: data.content,
       recipients: data.recipients,
@@ -17,11 +19,12 @@ Page({
       nickName: data.nickName,
       imgList: data.imgList,
       position: data.position,
-      comments: data.comments,
-      create_time: data.create_time,
-      readOnly :true
+      create_time: data.create_time
+      
     })
-    console.log(this.data)
+
+    if (this.data.readOnly == true)
+      this._getComments()
   },
 
   onShow: function (options) {
@@ -202,6 +205,42 @@ Page({
     }
     this.setData({
       matesChosen: arr
+    })
+  },
+  bindCommitChange: function (e) {
+    this.setData({
+      commitChanged: true,
+      commitValue: e.detail.value
+    })
+  },
+  commitComment: function (e) {
+    var that = this
+    wx.request({
+      url: 'http://192.168.3.158/wxes/public/home/Comment/postAddComment',
+      data: {
+        content: that.data.commitValue,
+        openid: that.data.openid,
+        report_id: that.data.report_id
+      },
+      method: "POST",
+      success: function (res) {
+        that.setData({
+          commitChanged: false,
+          commitValue: ''
+        })
+        that._getComments()
+      }
+    })
+  },
+  _getComments: function () {
+    var that = this
+    wx.request({
+      url: 'http://192.168.3.158/wxes/public/home/Comment/getCommentList?report_id=' + that.data.report_id,
+      success: function (res) {
+        that.setData({
+          comments: res.data
+        })
+      }
     })
   }
 })

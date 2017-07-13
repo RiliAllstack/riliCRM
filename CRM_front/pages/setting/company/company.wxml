@@ -1,7 +1,7 @@
 <view class="container">
   <view class="category-item">
     <view class="detail-item">
-      <label>请填写公司相关信息以便管理员审核通过</label>
+      <label>请准确填写公司完整名称以便管理员审核通过</label>
     </view>
   </view>
   <view class="category-item">

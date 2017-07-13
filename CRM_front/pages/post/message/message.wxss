@@ -1,9 +1,7 @@
-
-
 .send-arrow-right {
   position: absolute;
   top: 5px;
-  right: -16px; /* 圆角的位置需要细心调试哦 */
+  right: -16px; /* 圆角的位置需要细心调试 */
   width: 0;
   height: 0;
   font-size: 0;
@@ -24,7 +22,7 @@
 .send-arrow-left {
   position: absolute;
   top: 5px;
-  left: -16px; /* 圆角的位置需要细心调试哦 */
+  left: -16px; /* 圆角的位置需要细心调试 */
   width: 0;
   height: 0;
   font-size: 0;
@@ -32,17 +30,11 @@
   border-color: #e6e6e6 #fff #e6e6e6 #e6e6e6;
 }
 
-.container {
-  background: #e6e6e6;
-  display: flex;
-  flex-direction: column;
-  height: 1200rpx;
-}
-.message-container
-{
+.message-container {
   display: flex;
   flex-direction: row;
 }
+
 .send-right {
   position: relative;
   width: 150px;
@@ -54,16 +46,18 @@
 
 .avatar {
   position: relative;
-  width: 64rpx;
+  width: 52rpx;
   height: 64rpx;
-  margin: 10rpx 10rpx 0 40rpx;
+  margin: 10rpx;
   border-radius: 50%;
 }
-.sendmessage{
+
+.sendmessage {
   display: flex;
   flex-direction: row;
 }
-.sendmessage input{
+
+.sendmessage input {
   font-size: 32rpx;
   margin-bottom: 0px;
   margin-left: 20px;
@@ -71,7 +65,62 @@
   width: 70%;
   height: 40px;
 }
-.sendmessage button{
+
+.sendmessage button {
   font-size: 32rpx;
   margin-bottom: 12px;
+}
+
+.container {
+  background: #e6e6e6;
+  display: flex;
+  flex-direction: column;
+  height: 1200rpx;
+  align-items: center;
+}
+
+.messagebox {
+  width: 90%;
+  margin-top: 10rpx;
+}
+.mgstime-align{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.msgtime {
+  background-color: lightgrey;
+  color: white;
+  text-align: center;
+}
+
+.msgcontent {
+  margin-top: 10rpx;
+  background-color: white;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: row;
+}
+.msg{
+  position: relative;
+  width: 48rpx;
+  height: 52rpx;
+  margin: 10rpx;
+  border-radius: 50%;
+}
+.content-detail{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+.content-text{
+  font-size: 32rpx;
+  margin-top: 10rpx;
+  border-bottom: 1px solid #e6e6e6;
+}
+.content-textC{
+  font-size: 32rpx;
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+  height: 100%;
 }

@@ -70,8 +70,10 @@
 }
 .detail-item .newmsg {
   margin-left: 5rpx;
-  width:15rpx;
-  height: 15rpx;
+  width:12rpx;
+  height: 12rpx;
+  padding-top: 1rpx;
+  position: absolute;
 }
 
 .detail-item.green_hover {
@@ -121,11 +123,11 @@
 .board {
   display: flex;
   flex-direction: column;
-  margin-top: 100rpx;
+  margin-top: 40rpx;
  
 }
 .board-title {
-  font-size: 36rpx;
+  font-size: 32rpx;
   text-align: center;
   border: 2px solid #4a6141;
   border-radius: 5px;

@@ -6,9 +6,9 @@ Page({
   data: {
 
     device: [
-      { iconurl: '/images/icon/other_icon/pin.png', title: '待办', tap: 'showTodos' },
-      { iconurl: '/images/icon/other_icon/bell-out.png', title: '通知', tap: 'showNotice' },
-      { iconurl: '/images/icon/other_icon/boxes.png', title: '公告', tap: 'showMessage' },
+      { iconurl: '/images/icon/other_icon/pin.png', title: '待办', tap: 'showTodos', id: 0 },
+      { iconurl: '/images/icon/other_icon/bell-out.png', title: '通知', tap: 'showNotice', id: 1 },
+      { iconurl: '/images/icon/other_icon/boxes.png', title: '公告', tap: 'showMessage', id: 2 },
     ],
     taskShowStatus: []
   },
@@ -17,10 +17,12 @@ Page({
     this.setData({
       postList: dbPost.getAllPostData(),
       userInfo: app.globalData.g_userInfo.userInfo_openid,
+      redHatTime:wx.getStorageSync('redHatTime')
     });
   },
   onShow: function () {
     this.selectTask()
+    this._getRedhat()
   },
   showMessage: function () {
     wx.navigateTo({
@@ -32,21 +34,18 @@ Page({
       url: 'calendar/calendar',
     })
   },
-  showNotice:function(){
+  showNotice: function () {
     wx.navigateTo({
       url: 'notice/notice',
     })
   },
 
-  // target 和currentTarget
-  // target指的是当前点击的组件 和currentTarget 指的是事件捕获的组件
-  // target这里指的是image，而currentTarget指的是swiper
-  onSwiperTap: function (event) {
-    var postId = event.target.dataset.postId;
-    wx.navigateTo({
-      url: "post-detail/post-detail?id=" + postId
-    })
-  },
+  // onSwiperTap: function (event) {
+  //   var postId = event.target.dataset.postId;
+  //   wx.navigateTo({
+  //     url: "post-detail/post-detail?id=" + postId
+  //   })
+  // },
   onArrange: function () {
     wx.showActionSheet({
       itemList: ['新建任务'],
@@ -115,6 +114,12 @@ Page({
             isNullTask: true,
           })
         }
+      },
+      fail: function (res) {
+        wx.showToast({
+          title: res.errMsg,
+          duration: 20000
+        })
       }
     })
   },
@@ -148,5 +153,18 @@ Page({
   onPullDownRefresh: function () {
     this.selectTask()
     wx.stopPullDownRefresh()
+  },
+  _getRedhat: function () {
+    var that = this
+    wx.request({
+      url: 'http://192.168.3.158/wxes/public/home/Message/Redhot?openid=' + that.data.userInfo.openid,
+      success: function (res) {
+        that.setData({
+          redHat: res.data,
+          redHatTime: wx.getStorageSync('redHatTime')
+        })
+        wx.setStorageSync('redHatTime', res.data[2])
+      }
+    })
   }
 })

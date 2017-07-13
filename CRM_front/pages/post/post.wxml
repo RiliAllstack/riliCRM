@@ -6,7 +6,7 @@
         <image src="{{item.iconurl}}"></image>
         <view class="msgcounts">
           <text>{{item.title}}</text>
-          <image class="newmsg" src="/images/icon/other_icon/dots.png"></image>
+          <image class="newmsg" src="/images/icon/other_icon/dots.png" wx:if="{{(redHat[item.id] == 'true')||((redHat[item.id] != redHatTime)&& (item.id==2)) }}"></image>
         </view>
         <view class="detail-item-btn"></view>
       </view>
@@ -46,6 +46,7 @@
         </view>
       </block>
       <text class="board-add" style="color:blue" catchtap="onArrange">添加任务</text>
+
     </view>
   </view>
 </view>

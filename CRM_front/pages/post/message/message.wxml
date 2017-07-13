@@ -1,7 +1,7 @@
 <import src="../../../wxParse/wxParse.wxml" />
 
 <view class="container">
-  
+
   <!--<view>
     <scroll-view scroll-y style="height: 1100rpx;" bindscrolltolower="lower">
       <block wx:for="{{replyTemArray}}" wx:key="">
@@ -13,9 +13,17 @@
     <input id="message" bindinput="bindChange" value="{{message}}"></input>
     <button type="primary" bindtap="add">发送</button>
   </view>-->
-  <view class="messagebox">
-  <text>6月7</text>
-  <view class="classname">
-  <image src="src"></image></view>
+
+  <view class="messagebox" wx:for="{{message}}">
+  <view class="mgstime-align">
+    <text class="msgtime">{{item.create_time}}</text>
+    </view>
+    <view class="msgcontent">
+      <image class="msg" src="/images/icon/other_icon/megaphone.png"></image>
+      <view class="content-detail">
+      <text class="content-text">鈤励公告：</text>
+      <text class="content-textC">"{{item.themes}}"\n{{item.text}}</text>
+      </view>
+    </view>
   </view>
 </view>

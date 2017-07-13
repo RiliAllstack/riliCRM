@@ -1,5 +1,6 @@
 <!--reports-plus.wxml-->
 <form bindsubmit="addReports" bindreset="formReset">
+
   <view class="category-item">
 
     <view class="detail-item">
@@ -80,22 +81,33 @@
       <input disabled="disabled" value="·{{address}}" name="position"></input>
       <image src="/images/icon/other_icon/position.png"></image>
     </view>
-    <view class="detail-item" name="position" catchtap="getPosition" wx:if="{{readOnly}}">
+    <view class="detail-item" name="position" wx:if="{{readOnly}}">
       <text>位置:</text>
       <input disabled="disabled" value="{{position}}" name="position"></input>
-      <image src="/images/icon/other_icon/position.png"></image>
     </view>
 
+    <view class="comments" style="margin-bottom:150rpx;" wx:if="{{readOnly}}">
+      <text style="margin-left:30rpx;margin-bottom:20rpx;font-size:32rpx;line-height:60rpx;">评论</text>
+      <view class="commemts-item" wx:for="{{comments}}">
+        <view class="comments-item-avatar-date" >
+          <image src="{{item.avatarUrl}}"></image>
+          <text>{{item.nickName}}\n{{item.create_time}}</text>
+        </view>
+        <text class="comments-content">{{item.content}}</text>
+      </view>
+    </view>
     <view wx:if="{{!readOnly}}">
-      <button formType="submit" type="primary">发送</button>
-      <button formType="reset" type="warn" style="position: fixed;width: 100%;top: 90%;" catchtap="clean">清空</button>
+      <button class="category-item-button" formType="submit" type="primary">发送</button>
+      <button class="category-item-button" formType="reset" type="warn" style="position: fixed;width: 100%;top: 90%;" catchtap="clean">清空</button>
     </view>
     <view class="reports-detail-record-send" wx:if="{{readOnly}}">
-      <view class="img_upload" catchtap="uploadImg">
+      <!--<view class="img_upload" catchtap="uploadImg">
         <image src="/images/icon/other_icon/img_upload.png"></image>
-      </view>
-      <input placeholder="快速记录" bindinput="bindSingleRecord" />
-      <image src="/images/icon/other_icon/redo.png" catchtap="sendRecords"></image>
+      </view>-->
+      <input placeholder="输入评论内容" bindinput="bindCommitChange" value="{{commitValue}}" />
+      <button class="{{commitChanged==true ? 'comment-btn2' : 'comment-btn1'}}" catchtap="commitComment">评论</button>
+      <!--<image src="/images/icon/other_icon/redo.png" catchtap="sendRecords"></image>-->
     </view>
   </view>
+
 </form>

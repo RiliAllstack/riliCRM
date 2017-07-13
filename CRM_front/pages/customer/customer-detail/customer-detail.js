@@ -20,6 +20,11 @@ Page({
     })
     this._getRecords()
   },
+  onPullDownRefresh: function () {
+    this._getRecords()
+    wx.stopPullDownRefresh()
+  },
+  
   bindSingleRecord: function (e) {
     this.setData({
       singleRecord: e.detail.value
@@ -39,13 +44,6 @@ Page({
         that.setData({
           records: res.data
         })
-        //
-        // for (var i = 0; i < ((imgList.length <= 4) ? imgList.length : 4); i++) {
-        //   imgList1.push(imgList[i]);
-        // }
-        // for (var i = 4; i < ((imgList.length >= 4) ? imgList.length : 4); i++) {
-        //   imgList2.push(imgList[i]);
-        // }
       }
     })
   },
@@ -73,7 +71,7 @@ Page({
       },
       method: "POST",
       success: function (res) {
-        console.log(res.data)
+        that._getRecords()
       }
     })
 
@@ -157,13 +155,25 @@ Page({
         wx.showToast({
           title: '添加失败，请重新添加',
           icon: 'success',
-          duration: 2000
+          duration: 3000
         });
         setTimeout(function () {
           wx.hideToast();
-        }, 1000);
+        }, 3000);
       }
     })
   },
-  
+  recordDelete:function(e){
+    var that = this
+    wx.request({
+      url: 'http://192.168.3.158/wxes/public/home/Customerrecords/postdelCustomer',
+      data:{
+        id: e.currentTarget.dataset.recordid
+      },
+      method:"POST",
+      success:function(res){
+        that._getRecords()
+      }
+    })
+  }
 })

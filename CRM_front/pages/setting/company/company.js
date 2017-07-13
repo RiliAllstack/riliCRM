@@ -30,5 +30,8 @@ Page({
     this.setData({
       companyName: e.detail.value
     })
+  },
+  onShareAppMessage:function(){
+    
   }
 });

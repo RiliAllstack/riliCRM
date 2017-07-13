@@ -1,4 +1,5 @@
 {
   "navigationBarTextStyle": "white",
-  "navigationBarTitleText": "客户"
+  "navigationBarTitleText": "客户",
+  "enablePullDownRefresh": true
 }

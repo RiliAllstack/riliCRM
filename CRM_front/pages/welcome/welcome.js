@@ -1,37 +1,35 @@
 var util = require('../../util/util.js')
-
-var data = {
-  message: "aaa",
-  name: "a"
-}
 var app = getApp()
 Page({
-  onTapJump: function (event) {
-    wx.switchTab({
-      url: "../post/post",
-      success: function () {
-        console.log("jump success")
-      },
-      fail: function () {
-        console.log("jump failed")
-      },
-      complete: function () {
-        console.log("jump complete")
-      }
-    });
+  data: {
+    progress: 0
   },
   onUnload: function (event) {
-    console.log("page is unload")
+
   },
   onHide: function (event) {
     console.log("page is hiding")
   },
-  
+
   onLoad: function () {
-    console.log('onLoad')
+    var that = this
+    var timer = setInterval(function () {
+      //你需要执行的代码
+      that.setData({
+        progress: that.data.progress + 3
+      })
+      if (that.data.progress > 30) {
+        clearInterval(timer)
+        wx.switchTab({
+          url: "../post/post",
+        });
+      }
+    }, 300)
+
     //调用应用实例的方法获取全局数据
     this.setData({
       userInfo: app.globalData.g_userInfo.userInfo
     })
+
   }
 })

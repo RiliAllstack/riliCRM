@@ -1,0 +1,44 @@
+<!--mate-detail.wxml-->
+<view class='swiper-top-centent'>
+  <image src="{{detail.avatarUrl}}" mode="aspectFill" class="top1"></image>
+  <text class="top1">{{detail.nickName}}</text>
+  <text class="top2">销售部 销售</text>
+</view>
+
+<view class="swiper-tab">
+
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">动态</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">业务</view>
+  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">资料</view>
+</view>
+
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}rpx" bindchange="bindChange">
+  <swiper-item>
+    <view>我是动态</view>
+  </swiper-item>
+  <swiper-item>
+    <view>我是业务</view>
+  </swiper-item>
+  <swiper-item>
+    <view class='swiper-item-one'>
+      <view>邮箱</view>
+      <view>374554586@qq.com</view>
+    </view>
+    <view class='swiper-item-one'>
+      <view>邮箱</view>
+      <view>374554586@qq.com</view>
+    </view>
+    <view class='swiper-item-one'>
+      <view>邮箱</view>
+      <view>374554586@qq.com</view>
+    </view>
+    <view class='swiper-item-one'>
+      <view>邮箱</view>
+      <view>374554586@qq.com</view>
+    </view>
+    <view class='swiper-item-one'>
+      <view>邮箱</view>
+      <view>374554586@qq.com</view>
+    </view>
+  </swiper-item>
+</swiper>

@@ -18,7 +18,7 @@
       <text class="in">申请加入：{{item.company_name}}</text>
       <text class="in">申请时间：{{item.create_time}}</text>
     </view>
-    <button class="agree" type="primary" catchtap="agree" wx:if="{{item.ispass==0}}">同意</button>
+    <button class="agree" type="primary" catchtap="agree" wx:if="{{item.ispass==0}}" data-id="{{item.id}}">同意</button>
     <text class="agree-text" wx:if="{{item.ispass==1}}">已同意</text>
   </view>
  

@@ -14,11 +14,33 @@
 
 .motto {
   margin-top: 200rpx;
+  color: #9f4311;
+  font: 32rpx/1.5 "Helvetica Neue",
+          Helvetica,
+          Arial,
+          "Microsoft Yahei",
+          "Hiragino Sans GB",
+          "Heiti SC",
+          "WenQuanYi Micro Hei",
+          sans-serif;
+}
+
+.fonttest {
   font-size: 32rpx;
   font-weight: bold;
-  color: #9f4311;
+  font-family: Helvetica,
+                 Tahoma,
+                 Arial,
+                 "PingFang SC",
+                 "Hiragino Sans GB",
+                 "Heiti SC",
+                 STXihei,
+                 "Microsoft YaHei",
+                 SimHei,
+                 "WenQuanYi Micro Hei";
 }
-.forward{
+
+.forward {
   margin-top: 100rpx;
   font-size: 30rpx;
 }
@@ -41,10 +63,4 @@
 
 page {
   background-color: #ecc0a8;
-}
-
-input {
-  margin-top: 20rpx; 
-  background-color: white;
-  border-radius: 10rpx;
 }

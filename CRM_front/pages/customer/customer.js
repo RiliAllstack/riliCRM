@@ -75,6 +75,7 @@ Page({
     }
     else
     {
+      console.log(that.data.customerList[idx])
       wx.navigateTo({
         url: "/pages/customer/customer-detail/customer-detail?data=" + JSON.stringify(that.data.customerList[idx])
       })
