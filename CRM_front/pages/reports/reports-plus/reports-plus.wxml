@@ -64,13 +64,13 @@
     </view>
     <view class="image-column">
       <view class="image-list">
-        <view wx:for="{{imgList}}" catchtap="previewImg" data-id="{{index}}" wx:if="{{index<4 && item!=false}}">
-          <image mode="aspectFill" src="http://192.168.3.158/wxes/public/uploads/{{openid}}/{{item}}"></image>
+        <view wx:for="{{imgList}}" catchtap="previewImg_s" data-id="{{index}}" wx:if="{{index<4 && item!=false}}">
+          <image mode="aspectFill" src="http://192.168.3.158/wxes/public/uploads/{{openid_r}}/{{item}}"></image>
         </view>
       </view>
       <view class="image-list">
-        <view wx:for="{{imgList}}" catchtap="previewImg" data-id="{{index+4}}" wx:if="{{index>=4}}">
-          <image mode="aspectFill" src="http://192.168.3.158/wxes/public/uploads/{{openid}}/{{item}}"></image>
+        <view wx:for="{{imgList}}" catchtap="previewImg_s" data-id="{{index+4}}" wx:if="{{index>=4}}">
+          <image mode="aspectFill" src="http://192.168.3.158/wxes/public/uploads/{{openid_r}}/{{item}}"></image>
         </view>
 
       </view>

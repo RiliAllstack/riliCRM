@@ -3,38 +3,46 @@
   <view class="task-plus-container">
     <view class="task-plus-title-input">
       <text>主题</text>
-      <input name="theme"/>
+      <input name="theme" />
     </view>
 
     <view class="task-plus-title-input">
       <text>关联客户</text>
-      <input name="customer_id"/>
+      <input name="customer_id" />
     </view>
 
     <view class="task-plus-title-input">
       <text>负责人</text>
-      <input name="principal"/>
+      <input name="principal" />
     </view>
 
     <view class="task-plus-title-input">
       <text>参与人</text>
-      <input name="participants"/>
+      <input name="participants" />
     </view>
 
     <view class="task-plus-title-input">
       <text>重要度</text>
-      <input name="importance"/>
+      <input name="importance" />
     </view>
 
     <view class="task-plus-title-input">
       <text>描述</text>
-      <input name="depict"/>
+      <input name="depict" />
     </view>
-
-    <view class="task-plus-title-input ">
+    <view class="task-plus-title-input">
+      <text>日期</text>
+      
+       <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+        <view class="picker" name="date">
+          当前选择: {{date}}
+        </view>
+      </picker> 
+    </view>
+    <!-- <view class="task-plus-title-input ">
       <text>图片</text>
-      <input name="img"/>
-    </view>
+      <input name="img" />
+    </view> -->
     <!--<input value="{{userInfo.openid}}" name="openid" style="display:none"/>-->
     <button formType="submit" type="primary" style="width:98%;margin-top:130rpx">保存</button>
     <button formType="reset" type="warn" style="width:98%;margin-top:20rpx">清空</button>

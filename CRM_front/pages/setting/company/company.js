@@ -22,7 +22,35 @@ Page({
       data:data,
       method:"POST",
       success:function(res){
-        console.log(res.data)
+        if(res.data.type == 1)
+        {
+          wx.showToast({
+            title: '创建公司成功',
+            icon: 'success',
+            duration: 2500
+          })
+        }
+        if (res.data.type == 2) {
+          wx.showToast({
+            title: '业务员无法创建公司',
+            icon: 'success',
+            duration: 2500
+          })
+        }
+        if (res.data.type == 3) {
+          wx.showToast({
+            title: '提交成功，待审核',
+            icon: 'success',
+            duration: 2500
+          })
+        }
+        if (res.data.success == false) {
+          wx.showToast({
+            title: '已提交过，无需重复提交',
+            icon: 'success',
+            duration: 2500
+          })
+        }
       }
     })
   },

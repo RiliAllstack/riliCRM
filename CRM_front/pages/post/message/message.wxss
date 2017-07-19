@@ -72,13 +72,15 @@
 }
 
 .container {
-  background: #e6e6e6;
+  
   display: flex;
   flex-direction: column;
-  height: 1200rpx;
   align-items: center;
+  margin-bottom: 0rpx;
 }
-
+page{
+  background: #e6e6e6;
+}
 .messagebox {
   width: 90%;
   margin-top: 10rpx;

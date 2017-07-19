@@ -20,12 +20,14 @@
   font-size: 30rpx;
   font-weight: 300;
   margin-left: 10rpx;
-  width: 20%;
-  text-align: right;
+  width: 150rpx;
+  border-right: 1px solid #ededed;
 }
 
 .task-plus-title-input input{
-  border-left: 1px solid #ededed;
   width: 90%;
+  font-size: 32rpx;
+}
+.picker{
   font-size: 32rpx;
 }

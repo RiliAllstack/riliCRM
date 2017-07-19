@@ -118,7 +118,7 @@ Page({
       fail: function (res) {
         wx.showToast({
           title: res.errMsg,
-          duration: 20000
+          duration: 2000
         })
       }
     })
@@ -137,9 +137,27 @@ Page({
         taskId: e.currentTarget.dataset.taskid
       },
       success: function (res) {
-
+        if ((e.currentTarget.dataset.type == 3) && (res.data.success ==true))
+        {
+          wx.showToast({
+            title: '删除成功',
+            duration: 2000
+          })
+          that.selectTask()
+        }
+        if ((e.currentTarget.dataset.type == 1) && (res.data.success == true))
+        {
+          wx.showToast({
+            title: '完成！！',
+            duration: 2000
+          })
+          that.selectTask()
+        }
       }
     })
+  },
+  altDate:function(){
+
   },
   hide: function (e) {
     var index = e.currentTarget.dataset.postid

@@ -22,7 +22,7 @@
     <view class="board-content-container">
       <block wx:for="{{taskList}}" wx:for-index="idx">
         <view class="board-content" catchtap="hide" data-postId="{{idx}}">
-          <radio value="usa" checked="false" />
+          <radio checked="{{item.done == 1}}" disabled="true" style="color:red"/>
           <text>{{item.theme}}</text>
           <view wx:if="{{!taskShowStatus[idx].isShow}}" class="board-btn-down"></view>
           <view wx:if="{{taskShowStatus[idx].isShow}}" class="board-btn-up"></view>
@@ -35,10 +35,10 @@
             <image src="/images/icon/other_icon/checkmark.png"></image>
             <text>完成</text>
           </view>
-          <view class="board-imgcontent-img-text" catchtap="dealTask" data-type="2" data-taskId="{{item.Id}}">
+           <view class="board-imgcontent-img-text" catchtap="altDate" data-type="2" data-taskId="{{item.Id}}">
             <image src="/images/icon/other_icon/clock.png"></image>
-            <text>延时</text>
-          </view>
+            <text>修改时间</text>
+          </view> 
           <view class="board-imgcontent-img-text" catchtap="dealTask" data-type="3" data-taskId="{{item.Id}}">
             <image src="/images/icon/other_icon/trash.png"></image>
             <text>删除</text>

@@ -18,5 +18,5 @@
       </picker>
     </view>
   </view>
-  <button type="primary" style="position:absolute;margin-top:1000rpx;width:100%;" catchtap="submit">提交审核</button>
+  <button type="primary" style="position:fixed;top:1075rpx;width:100%;" catchtap="submit">提交审核</button>
 </view>

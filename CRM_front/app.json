@@ -1,11 +1,11 @@
 {
   "pages": [
     "pages/post/post",
-    "pages/team/team",
     "pages/welcome/welcome",
     
+    "pages/post/task/task",
+    "pages/team/team",
     "pages/setting/company/company",
-    
     "pages/reports/reports",
     "pages/post/message/message",
     "pages/setting/setting",
@@ -15,8 +15,6 @@
     "pages/customer/customer-detail/customer-detail",
     "pages/reports/reports-plus/reports-plus",
     "pages/team/mates/mates",
-    
-    "pages/post/task/task",
     "pages/customer/customer-plus/customer-plus",
     "pages/movie/movie",
     "pages/movie/more-movie/more-movie",

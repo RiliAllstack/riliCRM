@@ -91,7 +91,8 @@ Page({
               name: 'file',
               header: { "Content-Type": "multipart/form-data" },
               formData: {
-                openid: openid
+                openid: openid,
+                filePath: arr[i]
               },
               success: function (res) {
                 console.log(res.data)
@@ -102,6 +103,7 @@ Page({
         }
       }
     })
+  
     this._getRecords()
   },
   uploadImg: function () {

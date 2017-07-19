@@ -19,10 +19,9 @@ Page({
       nickName: data.nickName,
       imgList: data.imgList,
       position: data.position,
-      create_time: data.create_time
-      
+      create_time: data.create_time,
+      openid_r: data.openid
     })
-
     if (this.data.readOnly == true)
       this._getComments()
   },
@@ -135,11 +134,23 @@ Page({
     wx.previewImage({
       current: wx.getStorageSync("imgSrcs")[e.currentTarget.dataset.id],
       urls: wx.getStorageSync("imgSrcs"),
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
     })
   },
+  previewImg_s: function (e) {
+    var that = this
+    var image = new Array()
+    console.log(that.data.imgList)
+    for (var i = 0; i < that.data.imgList.length; i++) {
+      image.push("http://192.168.3.158/wxes/public/uploads/" + that.data.openid_r + '/' + that.data.imgList[i])
+    }
+
+    console.log(image)
+    wx.previewImage({
+      current: image[e.currentTarget.dataset.id],
+      urls: image
+    })
+  },
+
   addReports: function (e) {
     e.detail.value.openid = app.globalData.g_userInfo.userInfo_openid.openid
     e.detail.value.imgList = wx.getStorageSync("imgSrcs")
@@ -151,7 +162,26 @@ Page({
       data: e.detail.value,
       method: "POST",
       success: function (res) {
-        console.log(res.data)
+        if (res.data.success == true) {
+
+
+          wx.showToast({
+            title: '提交成功！',
+            icon: 'success',
+            duration: 2000,
+            success: function (res) {
+              // wx.navigateTo({
+              //   url: '/pages/reports/reports',
+              // });
+            }
+          });
+        } else {
+          wx.showToast({
+            title: '提交失败，请重试！',
+            icon: 'success',
+            duration: 2000
+          });
+        }
       }
     })
     //储存报告中的图片以及文件
@@ -163,16 +193,22 @@ Page({
           for (var key in res.fileList) {
             arr.push(res.fileList[key].filePath);
           }
+          console.log(arr)
           for (var i = 0; i < res.fileList.length; i++) {
-            wx.uploadFile({
+            console.log(res.fileList[i])
+             wx.uploadFile({
               url: 'http://192.168.3.158/wxes/public/home/Reports/upload',
               filePath: arr[i],
               name: 'file',
               header: { "Content-Type": "multipart/form-data" },
               formData: {
-                openid: e.detail.value.openid
+                openid: e.detail.value.openid,
+                filePath: arr[i]
               },
               success: function (res) {
+                console.log(res.data)
+              },
+              fail:function(res){
                 console.log(res.data)
               }
             })
