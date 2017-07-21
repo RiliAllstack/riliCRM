@@ -7,7 +7,7 @@ Page({
    */
   data: {
     plusType: 1,
-    openid: app.globalData.g_userInfo.userInfo_openid.openid,
+    
   },
 
   /**
@@ -23,7 +23,8 @@ Page({
       followerUper: options.followerUper,
       remark: options.remark,
       plusType: options.plusType,
-      id: options.id
+      id: options.id,
+      openid: app.globalData.g_userInfo.userInfo_openid.openid,
     })
   },
 

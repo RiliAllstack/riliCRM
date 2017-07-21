@@ -1,5 +1,5 @@
 // personer.js
-var app = new getApp()
+var app = getApp()
 
 Page({
 
@@ -21,54 +21,6 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
   onTapToPlus: function () {
     wx.navigateTo({
       url: "/pages/reports/reports-plus/reports-plus"
@@ -149,7 +101,7 @@ Page({
   _selectReports: function () {
     var that = this
     wx.request({
-      url: 'http://192.168.3.158/wxes/public/home/Reports/select_ReportsList?typeC=' + that.data.reportGetType + "&type=" + that.data.MyGetType + "&openid=" + app.globalData.g_userInfo.userInfo_openid.openid,
+      url: app.globalData.g_ip+'/wxes/public/home/Reports/select_ReportsList?typeC=' + that.data.reportGetType + "&type=" + that.data.MyGetType + "&openid=" + app.globalData.g_userInfo.userInfo_openid.openid,
       success: function (res) {
         that.setData({
           reports: res.data

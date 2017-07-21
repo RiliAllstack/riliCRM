@@ -1,5 +1,5 @@
 
-var WxParse = require('../../../wxParse/wxParse.js');
+//var WxParse = require('../../../wxParse/wxParse.js');
 
 var message = '';
 
@@ -15,7 +15,7 @@ Page({
   data: {
     message: '',
     text: text,
-    openid: app.globalData.g_userInfo.userInfo_openid.openid
+    
   },
   // bindChange: function (e) {
   //   this.setData({
@@ -25,7 +25,7 @@ Page({
   _getMsg: function () {
     var that = this
     wx.request({
-      url: 'http://192.168.3.158/wxes/public/home/Message/getMessagelist?openid=' + that.data.openid,
+      url: app.globalData.g_ip+'/wxes/public/home/Message/getMessagelist?openid=' + that.data.openid,
       success: function (res) {
         that.setData({
           message: res.data
@@ -63,9 +63,10 @@ Page({
   // },
 
   onLoad: function () {
+    this.setData({
+      openid: app.globalData.g_userInfo.userInfo_openid.openid
+    })
     this._getMsg()
-    console.log(this.data.userInfo)
-    var that = this
 
     // wx.connectSocket({
     //   url: 'ws://192.168.3.7:9505'

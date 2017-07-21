@@ -175,7 +175,7 @@ Page({
   _getRedhat: function () {
     var that = this
     wx.request({
-      url: 'http://192.168.3.158/wxes/public/home/Message/Redhot?openid=' + that.data.userInfo.openid,
+      url: app.globalData.g_ip+'/wxes/public/home/Message/Redhot?openid=' + that.data.userInfo.openid,
       success: function (res) {
         that.setData({
           redHat: res.data,

@@ -8,18 +8,20 @@ Page({
   data: {
     lengthChosen: 0,
     lengthAll: 0,
-    openid: app.globalData.g_userInfo.userInfo_openid.openid,
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      type: options.type,
+      openid: app.globalData.g_userInfo.userInfo_openid.openid,
+    })
     this._getTeam()
     console.log(options.type)
-    this.setData({
-      type: options.type
-    })
+    
   },
 
   _getTeam: function () {

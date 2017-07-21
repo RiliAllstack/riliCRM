@@ -9,7 +9,7 @@ Page({
     top250: {},
     containerShow: true,
     searchPanelShow: false,
-    searchResult: {},
+    searchResult: {}
   },
 
   onLoad: function (event) {

@@ -1,4 +1,4 @@
-@import "../stars/stars-tpl.wxss";
+/* @import "../stars/stars-tpl.wxss"; */
 
 .movie-container {
   display: flex;

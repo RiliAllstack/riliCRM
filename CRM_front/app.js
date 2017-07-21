@@ -9,8 +9,9 @@ App({
     }
     this._getUserInfo();
   },
+
   _getUserInfo: function () {
-    var userInfoStorage = '';//wx.getStorageSync('user');
+    var userInfoStorage = wx.getStorageSync('user');
     if (!userInfoStorage) {
       var that = this;
       wx.login({
@@ -62,7 +63,6 @@ App({
   },
 
   globalData: {
-    doubanBase: "https://api.douban.com",
     g_userInfo: {
       userInfo: wx.getStorageSync('user').userInfo,
       userInfo_openid: wx.getStorageSync('user').userInfo_openid

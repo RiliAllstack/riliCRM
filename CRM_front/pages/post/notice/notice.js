@@ -8,13 +8,16 @@ Page({
   data: {
     bl: 1,
     agreebl: false,
-    openid: app.globalData.g_userInfo.userInfo_openid.openid,
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      openid: app.globalData.g_userInfo.userInfo_openid.openid,
+    })
     this._getRevievsList()
   },
 
@@ -27,7 +30,7 @@ Page({
   _getRevievsList: function () {
     var that = this
     wx.request({
-      url: 'http://192.168.3.158/wxes/public/home/Reviews/getRevievsList?openid=' + that.data.openid,
+      url: app.globalData.g_ip+'/wxes/public/home/Reviews/getRevievsList?openid=' + that.data.openid,
       success: function (res) {
         that.setData({
           applies: res.data
@@ -38,7 +41,7 @@ Page({
   agree: function (e) {
     var that = this
     wx.request({
-      url: 'http://192.168.3.158/wxes/public/home/Reviews/postEditReviews',
+      url: app.globalData.g_ip+'/wxes/public/home/Reviews/postEditReviews',
       data: {
         id: e.currentTarget.dataset.id
       },

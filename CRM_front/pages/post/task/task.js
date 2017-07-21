@@ -29,7 +29,7 @@ Page({
     e.detail.value.openid = this.data.userInfo.openid
     e.detail.value.date = this.data.date
     wx.request({
-      url: 'http://192.168.3.158/wxes/public/index.php/home/Task/add_Task',
+      url: app.globalData.g_ip+'/wxes/public/index.php/home/Task/add_Task',
       method: "POST",
       data: e.detail.value,
       success: function (res) {

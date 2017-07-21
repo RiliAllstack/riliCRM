@@ -34,7 +34,7 @@ Page({
   _getKnowledge: function () {
     var that = this
     wx.request({
-      url: 'http://192.168.3.158/wxes/public/index.php/home/Reports/select_file?type=' + that.data.uploadType,
+      url: app.globalData.g_ip + '/wxes/public/index.php/home/Reports/select_file?type=' + that.data.uploadType,
 
       success: function (res) {
         that.setData({
@@ -47,7 +47,7 @@ Page({
   openFile: function (e) {
     var that = this
     wx.downloadFile({
-      url: 'http://192.168.3.158/wxes/public/' + that.data.filepath + '/' + e.currentTarget.dataset.filename,
+      url: app.globalData.g_ip + '/wxes/public/' + that.data.filepath + '/' + e.currentTarget.dataset.filename,
       //url: 'http://192.168.3.158/wxes/public/contracts/请假单.doc',
       success: function (res) {
         var filePath = res.tempFilePath
@@ -56,7 +56,7 @@ Page({
           success: function (res) {
             console.log('打开文档成功')
           },
-          fail:function(res){
+          fail: function (res) {
             console.log(res.data)
           }
         })

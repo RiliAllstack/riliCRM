@@ -7,7 +7,7 @@ Page({
    */
   data: {
     bl: 1,
-    openid: app.globalData.g_userInfo.userInfo_openid.openid,
+
     singleRecord: ''
   },
 
@@ -16,7 +16,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      customerDetail: JSON.parse(options.data)
+      customerDetail: JSON.parse(options.data),
+      openid: app.globalData.g_userInfo.userInfo_openid.openid,
     })
     this._getRecords()
   },
@@ -24,7 +25,7 @@ Page({
     this._getRecords()
     wx.stopPullDownRefresh()
   },
-  
+
   bindSingleRecord: function (e) {
     this.setData({
       singleRecord: e.detail.value
@@ -39,7 +40,7 @@ Page({
   _getRecords: function () {
     var that = this
     wx.request({
-      url: 'http://192.168.3.158/wxes/public/home/Customerrecords/OrderBy_Customer?customer_id=' + that.data.customerDetail.id + '&user_id=' + that.data.openid,
+      url: app.globalData.g_ip + '/wxes/public/home/Customerrecords/OrderBy_Customer?customer_id=' + that.data.customerDetail.id + '&user_id=' + that.data.openid,
       success: function (res) {
         that.setData({
           records: res.data
@@ -60,7 +61,7 @@ Page({
     var that = this
 
     wx.request({
-      url: 'http://192.168.3.158/wxes/public/home/Customerrecords/add_records',
+      url: app.globalData.g_ip + '/wxes/public/home/Customerrecords/add_records',
       data: {
         detail: that.data.singleRecord,
         user_id: that.data.openid,
@@ -86,7 +87,7 @@ Page({
           var openid = that.data.openid
           for (var i = 0; i < res.fileList.length; i++) {
             wx.uploadFile({
-              url: 'http://192.168.3.158/wxes/public/home/Reports/upload',
+              url: app.globalData.g_ip + '/wxes/public/home/Reports/upload',
               filePath: arr[i],
               name: 'file',
               header: { "Content-Type": "multipart/form-data" },
@@ -103,7 +104,7 @@ Page({
         }
       }
     })
-  
+
     this._getRecords()
   },
   uploadImg: function () {
@@ -165,15 +166,15 @@ Page({
       }
     })
   },
-  recordDelete:function(e){
+  recordDelete: function (e) {
     var that = this
     wx.request({
-      url: 'http://192.168.3.158/wxes/public/home/Customerrecords/postdelCustomer',
-      data:{
+      url: app.globalData.g_ip + '/wxes/public/home/Customerrecords/postdelCustomer',
+      data: {
         id: e.currentTarget.dataset.recordid
       },
-      method:"POST",
-      success:function(res){
+      method: "POST",
+      success: function (res) {
         that._getRecords()
       }
     })

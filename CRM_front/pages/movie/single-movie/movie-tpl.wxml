@@ -1,4 +1,4 @@
-<import src="../stars/stars-tpl.wxml" />
+
 <template name="movieTpl">
     <view class="movie-container" catchtap="onMovieTap" data-movie-id="{{movieId}}">
         <image class="movie-img" src="{{coverageUrl}}"></image>

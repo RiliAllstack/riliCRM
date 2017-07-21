@@ -4,7 +4,7 @@ Page({
 
   data: {
     address: '',
-    openid: app.globalData.g_userInfo.userInfo_openid.openid,
+    
   },
 
   onLoad: function (options) {
@@ -20,7 +20,8 @@ Page({
       imgList: data.imgList,
       position: data.position,
       create_time: data.create_time,
-      openid_r: data.openid
+      openid_r: data.openid,
+      openid: app.globalData.g_userInfo.userInfo_openid.openid,
     })
     if (this.data.readOnly == true)
       this._getComments()
@@ -141,7 +142,7 @@ Page({
     var image = new Array()
     console.log(that.data.imgList)
     for (var i = 0; i < that.data.imgList.length; i++) {
-      image.push("http://192.168.3.158/wxes/public/uploads/" + that.data.openid_r + '/' + that.data.imgList[i])
+      image.push(app.globalData.g_ip+"/wxes/public/uploads/" + that.data.openid_r + '/' + that.data.imgList[i])
     }
 
     console.log(image)
@@ -158,7 +159,7 @@ Page({
     var that = this
     //记录报告
     wx.request({
-      url: 'http://192.168.3.158/wxes/public/home/Reports/add_Reports',
+      url: app.globalData.g_ip+'/wxes/public/home/Reports/add_Reports',
       data: e.detail.value,
       method: "POST",
       success: function (res) {
@@ -197,7 +198,7 @@ Page({
           for (var i = 0; i < res.fileList.length; i++) {
             console.log(res.fileList[i])
              wx.uploadFile({
-              url: 'http://192.168.3.158/wxes/public/home/Reports/upload',
+               url: app.globalData.g_ip+'/wxes/public/home/Reports/upload',
               filePath: arr[i],
               name: 'file',
               header: { "Content-Type": "multipart/form-data" },
@@ -252,7 +253,7 @@ Page({
   commitComment: function (e) {
     var that = this
     wx.request({
-      url: 'http://192.168.3.158/wxes/public/home/Comment/postAddComment',
+      url: app.globalData.g_ip+'/wxes/public/home/Comment/postAddComment',
       data: {
         content: that.data.commitValue,
         openid: that.data.openid,
@@ -271,7 +272,7 @@ Page({
   _getComments: function () {
     var that = this
     wx.request({
-      url: 'http://192.168.3.158/wxes/public/home/Comment/getCommentList?report_id=' + that.data.report_id,
+      url: app.globalData.g_ip+'/wxes/public/home/Comment/getCommentList?report_id=' + that.data.report_id,
       success: function (res) {
         that.setData({
           comments: res.data
