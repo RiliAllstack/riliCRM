@@ -1,4 +1,5 @@
 // knowledge-detail.js
+var app= getApp()
 Page({
 
   /**

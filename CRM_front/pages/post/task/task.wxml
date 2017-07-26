@@ -3,22 +3,22 @@
   <view class="task-plus-container">
     <view class="task-plus-title-input">
       <text>主题</text>
-      <input name="theme" />
+      <input name="theme" placeholder="必填" placeholder-class="placeholder"/>
     </view>
 
     <view class="task-plus-title-input">
       <text>关联客户</text>
-      <input name="customer_id" />
+      <input name="customer_id" placeholder="必填" placeholder-class="placeholder"/>
     </view>
 
     <view class="task-plus-title-input">
       <text>负责人</text>
-      <input name="principal" />
+      <input name="principal" placeholder="必填" placeholder-class="placeholder"/>
     </view>
 
     <view class="task-plus-title-input">
       <text>参与人</text>
-      <input name="participants" />
+      <input name="participants" placeholder="必填" placeholder-class="placeholder"/>
     </view>
 
     <view class="task-plus-title-input">

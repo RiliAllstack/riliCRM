@@ -31,7 +31,7 @@
             <view class="image-column">
               <view class="image-list">
                 <view wx:for="{{itemTimeData.imgList}}" wx:for-index="idx" catchtap="previewImg" data-id="{{index}}" wx:if="{{item!=false}}">
-                  <image mode="aspectFill" src="http://192.168.3.158/wxes/public/uploads/{{openid}}/{{item}}"></image>
+                  <image mode="aspectFill" src="{{ip}}/wxes/public/uploads/{{openid}}/{{item}}"></image>
                 </view>
               </view>
             </view>

@@ -32,7 +32,7 @@ Page({
     if (e.currentTarget.dataset.type == 1) {
       e.detail.value.openid=this.data.openid
       wx.request({
-        url: app.globalData.g_ip + '/wxes/public/index.php/home/Customer/add_Customer',
+        url: app.globalData.g_ip + '/wxes/public/home/Customer/add_Customer',
         data: e.detail.value,
         method: "POST",
         success: function (res) {
@@ -52,7 +52,7 @@ Page({
     else if (e.currentTarget.dataset.type == 2) {
       e.detail.value.id = this.data.id
       wx.request({
-        url: app.globalData.g_ip + '/wxes/public/index.php/home/Customer/postUpdateCustomer',
+        url: app.globalData.g_ip + '/wxes/public/home/Customer/postUpdateCustomer',
         data: e.detail.value,
         method: "POST",
         success: function (res) {

@@ -22,6 +22,7 @@ Page({
       create_time: data.create_time,
       openid_r: data.openid,
       openid: app.globalData.g_userInfo.userInfo_openid.openid,
+      ip: app.globalData.g_ip
     })
     if (this.data.readOnly == true)
       this._getComments()

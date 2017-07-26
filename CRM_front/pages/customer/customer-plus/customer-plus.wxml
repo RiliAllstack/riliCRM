@@ -4,27 +4,27 @@
     <view class="customer-plus-author-date"></view>
     <view class="customer-plus-title-input">
       <text>公司名称：</text>
-      <input type="text" name="company" value="{{company}}"/>
+      <input type="text" name="company" value="{{company}}" placeholder="必填" placeholder-class="placeholder"/>
     </view>
     <view class="customer-plus-title-input">
       <text>负 责 人：</text>
-      <input type="text" name="charger" value="{{charger}}"/>
+      <input type="text" name="charger" value="{{charger}}" placeholder="必填" placeholder-class="placeholder"/>
     </view>
     <view class="customer-plus-title-input">
       <text>产 值(万/年)：</text>
-      <input type="text" name="scale" value="{{scale}}"/>
+      <input type="text" name="scale" value="{{scale}}" placeholder="必填" placeholder-class="placeholder"/>
     </view>
     <view class="customer-plus-title-input">
       <text>位 置：</text>
-      <input type="text" name="position" value="{{position}}"/>
+      <input type="text" name="position" value="{{position}}" placeholder="必填" placeholder-class="placeholder"/>
     </view>
     <view class="customer-plus-title-input">
       <text>跟进程度：</text>
-      <input type="text" name="schedule" value="{{schedule}}"/>
+      <input type="text" name="schedule" value="{{schedule}}" placeholder="必填" placeholder-class="placeholder"/>
     </view>
     <view class="customer-plus-title-input">
       <text>业务人员：</text>
-      <input type="text" name="followUper" value="{{followUper}}"/>
+      <input type="text" name="followUper" value="{{followUper}}" placeholder="必填" placeholder-class="placeholder"/>
     </view>
     <view class="customer-plus-title-input">
       <text>备 注：</text>

@@ -80,6 +80,9 @@
   border-bottom: 1px solid #ededed;
   height: 80rpx;
 }
+.placeholder{
+  padding-left: 20rpx;
+}
 .customer-plus-title-input text{
   font-size: 28rpx;
   font-weight: 300;

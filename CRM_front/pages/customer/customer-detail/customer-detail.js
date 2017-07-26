@@ -18,6 +18,7 @@ Page({
     this.setData({
       customerDetail: JSON.parse(options.data),
       openid: app.globalData.g_userInfo.userInfo_openid.openid,
+      ip: app.globalData.g_ip
     })
     this._getRecords()
   },
