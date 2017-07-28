@@ -1,7 +1,7 @@
 /* mate-detail.wxss */
 .swiper-top-centent {
   height: 250px;
-  background: #4A6141;
+  background: #2f608b;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,8 +47,8 @@
 }
 
 .on {
-  color: #4A6141;
-  border-bottom: 8rpx solid #4A6141;
+  color: #2f608b;
+  border-bottom: 8rpx solid #2f608b;
 }
 
 .swiper-box {

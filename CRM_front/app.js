@@ -86,8 +86,8 @@ App({
       userInfo: wx.getStorageSync('user').userInfo,
       userInfo_openid: wx.getStorageSync('user').userInfo_openid
     },
-    //g_ip: "http://192.168.3.158"
-    g_ip: "http://120.25.74.178"
+    g_ip: "http://192.168.3.158"
+    //g_ip: "http://120.25.74.178"
   }
 
 })

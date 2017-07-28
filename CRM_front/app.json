@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/welcome/welcome",
     "pages/post/post",
     "pages/post/task/task",
     "pages/reports/reports",
@@ -22,11 +23,11 @@
     "pages/team/mates/mates"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#4A6141"
+    "navigationBarBackgroundColor": "#2f608b"
   },
   "tabBar": {
     "borderStyle": "white",
-    "selectedColor": "#4A6141",
+    "selectedColor": "#2f608b",
     "color": "#333",
     "backgroundColor": "#fff",
     "position": "bottom",

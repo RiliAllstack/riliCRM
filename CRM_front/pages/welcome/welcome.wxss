@@ -1,5 +1,4 @@
 .container {
-  margin-top: 100rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,12 +9,13 @@
   height: 128rpx;
   margin: 20rpx;
   border-radius: 50%;
+  margin-top: 100rpx;
 }
 
 .motto {
-  margin-top: 200rpx;
-  color: #9f4311;
-  font: 32rpx/1.5 "Helvetica Neue",
+  margin-top: 100rpx;
+  color: white;
+  font: 48rpx/1.5 "Helvetica Neue",
           Helvetica,
           Arial,
           "Microsoft Yahei",
@@ -61,6 +61,83 @@
   color: #ea5a3c;
 }
 
-page {
+
+.wavecontainer {
+  position: absolute;
+  width: 400rpx;
+  height: 400rpx;
+  padding: 5rpx;
+  border: 5rpx solid rgb(118, 218, 255);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: 100rpx;
+}
+
+.wave {
+  position: relative;
+  width: 400rpx;
+  height: 400rpx;
   background-color: #ecc0a8;
+  border-radius: 50%;
+}
+
+.wave::before, .wave ::after {
+  content: "";
+  position: absolute;
+  width: 800rpx;
+  height: 800rpx;
+  top: 0;
+  left: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 45%;
+  transform: translate(-50%, -70%) rotate(0);
+  animation: rotate 6s linear infinite;
+  z-index: 10;
+}
+
+.wave::after {
+  border-radius: 47%;
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translate(-50%, -70%) rotate(0);
+  animation: rotate 10s linear -5s infinite;
+  z-index: 20;
+}
+
+@keyframes rotate {
+  50% {
+    transform: translate(-50%, -73%) rotate(180deg);
+  }
+
+  100% {
+    transform: translate(-50%, -70%) rotate(360deg);
+  }
+}
+
+.in1, .in2 {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  animation: move 200s infinite linear alternate;
+}
+
+@keyframes move {
+  100% {
+    background-position: 500% 0;
+  }
+}
+
+.in1 {
+  background-image: url('http://sandbox.runjs.cn/uploads/rs/26/ddzmgynp/cloud.png');
+}
+
+.in2 {
+  background-image: url('http://sandbox.runjs.cn/uploads/rs/26/ddzmgynp/cloud1.png');
+  animation-duration: 40s;
 }
