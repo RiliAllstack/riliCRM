@@ -98,8 +98,9 @@ Page({
     },
   getTaskMonth: function () {
     var that = this;
+    console.log(curYear);
     wx.request({
-      url: app.globalData.g_ip + '/wxes/public/home/Task/select_TaskList?open_id=' + that.data.userInfo.openid + '&start_time=' + '2017-07',
+      url: app.globalData.g_ip + '/wxes/public/home/Task/select_TaskList?open_id=' + that.data.userInfo.openid + '&start_time=' + curYear + '-' + (curMonth+1),
       success: function (res) {
         pageData.detailData.curDayTask = res.data[pageData.detailData.curDay - 1].data;
         that.setData({

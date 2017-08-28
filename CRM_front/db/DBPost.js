@@ -51,7 +51,7 @@ class DBPost {
     var res = wx.getStorageSync(this.storageKeyName);
     if (!res) {
       res = require('../data/data.js').postList;
-      this.initPostList(res);
+      //this.initPostList(res);
     }
     return res;
   }
