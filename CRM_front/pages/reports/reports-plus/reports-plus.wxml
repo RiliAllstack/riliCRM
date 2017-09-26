@@ -58,7 +58,6 @@
         </view>
       </view>
     </view>
-
     <view class="detail-item" name="imgList" wx:if="{{readOnly}}">
       <text>图片:</text>
     </view>
